@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DraftsIcon from '@mui/icons-material/Drafts';
 
 
-export default function SiteMenu() {
+export default function AccountMenu() {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ export default function SiteMenu() {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Site
+          Account
         </ListSubheader>
       }
     >
@@ -40,6 +40,7 @@ export default function SiteMenu() {
         <ListItemText primary="Mail" />
       </ListItemButton>
 
+      
     </List>
   );
 }

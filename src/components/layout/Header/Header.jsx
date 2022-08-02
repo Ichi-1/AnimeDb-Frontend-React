@@ -4,12 +4,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
@@ -20,6 +18,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import Logo from '../../UI/Logo/Logo'
 import DashboardButton from '../../UI/Buttons/DashboardButton'
+import HomePageButton from '../../UI/Buttons/HomePageButton'
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -177,26 +176,11 @@ export default function Header() {
                 <AppBar position="static" color="primary">
                     <Toolbar>
                         <Logo />
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-
-                        </IconButton>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ display: { xs: 'none', sm: 'block' } }}
-                        >
+                        <HomePageButton />
 
 
-                        </Typography>
-                        <Search>
+               
+                        <Search>    
                             <SearchIconWrapper>
                                 <SearchIcon />
                             </SearchIconWrapper>
