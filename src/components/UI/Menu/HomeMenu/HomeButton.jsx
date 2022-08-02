@@ -1,12 +1,13 @@
-import AccountMenu from '../Menu/AccountMenu/AccountMenu'
-import SiteMenu from '../Menu/SiteMenu/SiteMenu'
-import MyAvatar from '../Avatar/Avatar';
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import HomeIcon from '@mui/icons-material/Home';
+import DatabaseOptions from './Options/DatabaseOptions'
+import CommunityOptions from './Options/CommunityOptions'
+import InfoOptions from './Options/InfoOptions'
+
 
 export default function DasahboardButton() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,8 +23,7 @@ export default function DasahboardButton() {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton
-            // disableRipple for disable on-click effect
-            disableRipple 
+            // disableRipple
             onClick={handleClick}
             size="large"
             sx={{ ml: 2 }}
@@ -31,10 +31,11 @@ export default function DasahboardButton() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <MyAvatar />
+          <HomeIcon />
           </IconButton>
         </Tooltip>
       </Box>
+
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -70,8 +71,9 @@ export default function DasahboardButton() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <AccountMenu />
-        <SiteMenu />
+        <DatabaseOptions />
+        <CommunityOptions  />
+        <InfoOptions />
       </Menu>
     </React.Fragment>
   );

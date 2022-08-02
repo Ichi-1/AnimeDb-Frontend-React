@@ -1,19 +1,14 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DraftsIcon from '@mui/icons-material/Drafts';
 
+import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 export default function SiteMenu() {
-  const [open, setOpen] = React.useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -27,17 +22,17 @@ export default function SiteMenu() {
     >
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <HelpOutlineRoundedIcon />
         </ListItemIcon>
-        <ListItemText primary="Anime List" />
+        <ListItemText primary="FAQ" />
       </ListItemButton>
 
 
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <LogoutRoundedIcon />
         </ListItemIcon>
-        <ListItemText primary="Mail" />
+        <ListItemText primary="Logout" />
       </ListItemButton>
 
     </List>

@@ -1,19 +1,16 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
 import DraftsIcon from '@mui/icons-material/Drafts';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
 
 
 export default function AccountMenu() {
-  const [open, setOpen] = React.useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -27,9 +24,9 @@ export default function AccountMenu() {
     >
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <PlaylistAddCheckOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Anime List" />
+        <ListItemText primary="My Anime List" />
       </ListItemButton>
 
 
@@ -38,6 +35,13 @@ export default function AccountMenu() {
           <DraftsIcon />
         </ListItemIcon>
         <ListItemText primary="Mail" />
+      </ListItemButton>
+
+      <ListItemButton>
+        <ListItemIcon>
+          <SettingsOutlinedIcon />
+        </ListItemIcon>
+        <ListItemText primary="Settings" />
       </ListItemButton>
 
     </List>

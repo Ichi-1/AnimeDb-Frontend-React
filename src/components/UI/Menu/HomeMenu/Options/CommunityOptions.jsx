@@ -1,19 +1,16 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DraftsIcon from '@mui/icons-material/Drafts';
+
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
 
 export default function AccountMenu() {
-  const [open, setOpen] = React.useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -21,25 +18,31 @@ export default function AccountMenu() {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Account
+          Community
         </ListSubheader>
       }
     >
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <ForumOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Anime List" />
+        <ListItemText primary="Forum" />
       </ListItemButton>
 
 
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <HistoryEduOutlinedIcon />
         </ListItemIcon>
-        <ListItemText primary="Mail" />
+        <ListItemText primary="Reviews" />
       </ListItemButton>
 
+      <ListItemButton>
+        <ListItemIcon>
+          <PeopleOutlineIcon />
+        </ListItemIcon>
+        <ListItemText primary="Users" />
+      </ListItemButton>
     </List>
   );
 }
