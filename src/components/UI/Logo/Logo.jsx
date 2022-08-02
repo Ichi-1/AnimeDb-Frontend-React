@@ -1,8 +1,16 @@
 import classes from './Logo.module.css'
+import StyledLink from '../Link/StyledLink'
 
 
 const Logo = () => {
-    return <h2 className={classes.Logo}>AnimeDb</h2>
+    return (
+        <div className={classes.Logo}>
+            <StyledLink to="/">
+                <h2 >AnimeDb</h2>
+            </StyledLink>
+        </div>
+        
+    )
 
 }
 

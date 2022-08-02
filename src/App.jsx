@@ -1,11 +1,12 @@
 import './styles/App.css';
-import Header from './components/layout/Header/Header';
+
+import AppRouter from './AppRouter';
 
 
 const App = () => {
   return (
     <div className="App">
-        <Header />
+        <AppRouter />
     </div>
   );
 }

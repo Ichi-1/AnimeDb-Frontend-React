@@ -1,14 +1,9 @@
 import * as React from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import SearchBar from '../../SearchBar/SearchBar';
 import Logo from '../../UI/Logo/Logo'
@@ -16,6 +11,8 @@ import AccountButton from '../../UI/Menu/AccountMenu/AccountButton'
 import HomeButton from '../../UI/Menu/HomeMenu/HomeButton'
 import ForumButton from '../../UI/Buttons/ForumButton';
 import NotificationButton from '../../UI/Buttons/NotificationButton'
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
 
