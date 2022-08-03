@@ -1,5 +1,5 @@
 import AuthSuccess from "./pages/AuthSuccess"
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/SignInPage";
 
 
 export const forAuthenticatedUser = [

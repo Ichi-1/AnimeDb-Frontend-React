@@ -9,7 +9,10 @@ export const Layout = () => {
     <div>
         <Header />
 
-        <Outlet />
+        {/* Block can be styled */}
+        <main>
+            <Outlet />   
+        </main>
 
         {/* <Footer /> */}
     </div>
