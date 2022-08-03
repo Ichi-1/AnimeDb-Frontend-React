@@ -21,7 +21,6 @@ export default function SignIn() {
         const data = new FormData(event.currentTarget);
         console.log({
             email: data.get('email'),
-            password: data.get('password'),
         });
     };
 
@@ -42,7 +41,7 @@ export default function SignIn() {
                         Password reset
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
-                    Here you can recover your password by sending an email with instructions
+                        Here you can recover your password by sending an email with instructions
                     </Typography>
 
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

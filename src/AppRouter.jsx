@@ -2,12 +2,15 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 
-
 import NotFound404 from './pages/NotFound404';
-import AuthSuccess from './pages/AuthSuccess';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import PasswordResetPage from './pages/PasswordResetPage'
+
+import FakeHomePage from './pages/FakeHomePage';
+import FakeContentPage from './pages/FakeContentPage.jsx'
+
+import PrivateRoute from './utils/PrivateRoute';
 
 const AppRouter = () => {
   return (
@@ -15,11 +18,13 @@ const AppRouter = () => {
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Layout/>}>
-                <Route index element={<AuthSuccess />} />
+
+                <Route index element={<FakeHomePage />} />
+                <Route path="/content" element={<FakeContentPage />} />
+
                 <Route path="/sign_in" element={<SignInPage />} />
                 <Route path="/sign_up" element={<SignUpPage />} />
                 <Route path="/users/password/reset" element={<PasswordResetPage/>} />
-                
                 <Route path="*" element={<NotFound404 />} />
             </Route>
                 
@@ -30,6 +35,8 @@ const AppRouter = () => {
 }
 
 export default AppRouter
+
+
 
 
 //* Эти функции в будущем можно использовать 

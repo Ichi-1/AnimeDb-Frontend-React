@@ -43,41 +43,38 @@ export default function SignUp() {
                         Create an account - it's free and only takes a minute.
                     </Typography>
 
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="nickname"
-                                    label="Nickname"
-                                    type="nickname"
-                                    id="nickname"
-                                    autoComplete="nickname"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email"
-                                    name="email"
-                                    autoComplete="email"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="new-password"
-                                />
-                            </Grid>
-                        </Grid>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                        <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="nickname"
+                                label="Login (nickname)"
+                                name="nickname"
+                                autoComplete="nickname"
+                                autoFocus
+                        />
+                        <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="email"
+                                label="Email"
+                                type="email"
+                                id="email"
+                                autoComplete="current-email"
+                        />
+                        <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                        />
+                           
 
                         <SubmitButton verb='Sign Up' />
 
