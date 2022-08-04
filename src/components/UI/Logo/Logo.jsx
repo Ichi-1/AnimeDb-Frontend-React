@@ -4,9 +4,9 @@ import StyledLink from '../Link/StyledLink'
 
 const Logo = () => {
     return (
-        <div className={classes.Logo}>
+        <div className={classes.myLogo}>
             <StyledLink to="/">
-                <h2 >AnimeDb</h2>
+                <h2>AnimeDb</h2>
             </StyledLink>
         </div>
         

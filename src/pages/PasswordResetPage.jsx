@@ -1,10 +1,10 @@
 import React from 'react'
-import PasswordReset from '../components/Auth/PasswordReset/PasswordReset'
+import PasswordResetForm from '../components/Auth/PasswordResetForm/PasswordResetForm'
 
 const PasswordResetPage = () => {
   return (
     <div>
-        <PasswordReset />
+        <PasswordResetForm />
     </div>
   )
 }

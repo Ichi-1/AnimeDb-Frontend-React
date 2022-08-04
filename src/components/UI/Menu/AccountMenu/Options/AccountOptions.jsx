@@ -5,6 +5,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
+import StyledLink from 'components/UI/Link/StyledLink';
+
 import DraftsIcon from '@mui/icons-material/Drafts';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
@@ -37,12 +39,16 @@ export default function AccountMenu() {
         <ListItemText primary="Mail" />
       </ListItemButton>
 
-      <ListItemButton>
-        <ListItemIcon>
-          <SettingsOutlinedIcon />
-        </ListItemIcon>
-        <ListItemText primary="Settings" />
-      </ListItemButton>
+
+      <StyledLink to='/account'>
+        <ListItemButton>
+            <ListItemIcon>
+            <SettingsOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+        </ListItemButton>
+      </StyledLink>
+      
 
     </List>
   );

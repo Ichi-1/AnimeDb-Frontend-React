@@ -7,8 +7,8 @@ import Menu from '@mui/material/Menu';
 
 import SearchBar from '../../SearchBar/SearchBar';
 import Logo from '../../UI/Logo/Logo'
-import AccountButton from '../../UI/Menu/AccountMenu/AccountButton'
-import HomeButton from '../../UI/Menu/HomeMenu/HomeButton'
+import AccountButton from '../../UI/Buttons/AccountButton'
+import HomeButton from '../../UI/Buttons/HomeButton'
 import ForumButton from '../../UI/Buttons/ForumButton';
 import NotificationButton from '../../UI/Buttons/NotificationButton'
 

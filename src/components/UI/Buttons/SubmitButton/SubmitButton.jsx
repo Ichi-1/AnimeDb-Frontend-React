@@ -1,10 +1,14 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-const SubmitButton = (props) => {
+export const SubmitButton = (props) => {
   return (
     <div>
         <Button
+        style={{
+                backgroundColor: "teal",
+
+            }}
               type="submit"
               fullWidth
               variant="contained"
@@ -16,4 +20,3 @@ const SubmitButton = (props) => {
   )
 }
 
-export default SubmitButton

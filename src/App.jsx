@@ -1,14 +1,16 @@
 import './styles/App.css';
 
-import AppRouter from './AppRouter';
+import { AppRouter } from './routes/AppRouter';
+import { AuthProvider } from './components/Auth/context/AuthContext';
 
-
-const App = () => {
+export const App = () => {
   return (
     <div className="App">
-        <AppRouter />
+        <AuthProvider>
+            <AppRouter />
+        </AuthProvider>
     </div>
   );
 }
 
-export default App;
+

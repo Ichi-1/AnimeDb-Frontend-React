@@ -1,25 +1,46 @@
-import * as React from 'react';
+import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import SubmitButton from '../../UI/Buttons/SubmitButton/SubmitButton'
+import {SubmitButton} from '../../UI/Buttons/SubmitButton/SubmitButton'
 import StyledLink from '../../UI/Link/StyledLink';
+
+import { useNavigate } from 'react-router-dom';
+import AuthService from '../services/AuthService';
+
+import MyTextField from 'components/UI/TextField/TextField';
 
 const theme = createTheme();
 
-export default function SignIn() {
-    const handleSubmit = (event) => {
+export default function RegistrationForm() {
+    const navigate = useNavigate();
+    const handleSignUpSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const nickname = data.get('nickname')
+        const password = data.get('password')
+        const email = data.get('email')
+    
+        const request = await AuthService.fetchRegistration(
+            nickname, email, password
+        )
+        const response= await request.json()
+        
+    
+        if (request.status !== 201) {
+            console.log('ERROR', request.status)
+    
+            for (let field in response) {
+                let error = response[field]
+                console.log(`${field}: ${error.toString()}`)
+            }
+        } else {
+            navigate('/')
+        }
+    
     };
 
     return (
@@ -34,47 +55,42 @@ export default function SignIn() {
                         alignItems: 'center',
                     }}
                 >
-
                     <Typography component="h1" variant="h5">
-                        Authorization
+                        Registration
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
-                        On this page you can log in to our website
+                        Create an account - it's free and only takes a minute.
                     </Typography>
 
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
+                    <Box component="form" noValidate onSubmit={handleSignUpSubmit} sx={{ mt: 1 }}>
+                        <MyTextField
                             id="nickname"
                             label="Login (nickname)"
                             name="nickname"
                             autoComplete="nickname"
-                            autoFocus
                         />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
+                        <MyTextField 
+                            id="email"
+                            label="Email"
+                            name="email"
+                            type="email"
+                            autoComplete="current-email"
+                        />
+                        <MyTextField 
                             id="password"
+                            label="Password"
+                            name="password"
+                            type="password"
                             autoComplete="current-password"
                         />
-                        
-                        {/* <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        /> */}
 
-                        <SubmitButton verb='Sign In' />
+
+                        <SubmitButton verb='Sign Up'/>
 
                         <Grid container direction='column' >
                             <Grid item p={1}>
-                                <StyledLink to="/sign_up">
-                                    Register a new account
+                                <StyledLink to="/login">
+                                    Sign in to an existing account
                                 </StyledLink>
                             </Grid>
 
@@ -84,8 +100,6 @@ export default function SignIn() {
                                 </StyledLink>
                             </Grid>
                         </Grid>
-
-                        
                     </Box>
                 </Box>
 
