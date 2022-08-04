@@ -10,8 +10,8 @@ import AuthorizationPage from '../pages/AuthorizationPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import PasswordResetPage from '../pages/PasswordResetPage';
 
-import ProtectedRoutes from './ProtectedRoutes';
-import AuthRoutes from './AuthRoutes';
+import UserOnlyRoute from './UserOnlyRoute';
+import GuestOnlyRoutes from './GuestOnlyRoutes';
 
 
 
@@ -24,12 +24,12 @@ export const AppRouter = () => {
                 <Route index element={<HomePage />} />
                 <Route path="*" element={<NotFound404 />} />
 
-                <Route element={<ProtectedRoutes />}>
+                <Route element={<UserOnlyRoute />}>
                     <Route path="/account" element={<AccountPage />}/>
                 </Route>
           
                
-                <Route element={<AuthRoutes />}>
+                <Route element={<GuestOnlyRoutes />}>
                     <Route path="/login" element={<AuthorizationPage />} />
                     <Route path="/sign_up" element={<RegistrationPage />} />
                     <Route path="/users/password/reset" element={<PasswordResetPage/>} />
