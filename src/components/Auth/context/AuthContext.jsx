@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import jwt_decode from 'jwt-decode'
-import AuthService from "../services/AuthService";
+import jwt_decode from 'jwt-decode';
+import AuthService from "api/AuthService";
 
 const AuthContext = createContext();
 export default AuthContext
@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }) => {
         const data = new FormData(event.currentTarget);
         const nickname = data.get('nickname')
         const password = data.get('password')
-        
+
         const response = await AuthService.fetchLogin(nickname, password)
-    
-        
+
+
         if (response.status === 200) {
             let tokensPair = await response.json()
             setAuthTokens(tokensPair)

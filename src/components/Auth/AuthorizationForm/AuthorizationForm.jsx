@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import AuthContext from '../context/AuthContext';
+import AuthContext from 'components/Auth/context/AuthContext';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import StyledLink from '../../UI/Link/StyledLink';
+import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SubmitButton } from '../../UI/Buttons/SubmitButton/SubmitButton';
+import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton';
 import { MyTextField } from 'components/UI/TextField/TextField';
 
 
@@ -16,7 +16,7 @@ import { MyTextField } from 'components/UI/TextField/TextField';
 const theme = createTheme();
 
 export const AuthorizationForm = () => {
-    const {loginUser} = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
 
     return (
         <ThemeProvider theme={theme}>
@@ -39,7 +39,7 @@ export const AuthorizationForm = () => {
                     </Typography>
 
                     <Box component="form" noValidate onSubmit={loginUser} sx={{ mt: 1 }}>
-                        <MyTextField 
+                        <MyTextField
                             id="nickname"
                             label="Login (nickname)"
                             name="nickname"
@@ -51,7 +51,7 @@ export const AuthorizationForm = () => {
                             type="password"
                             autoComplete="current-password"
                         />
-                       
+
                         <SubmitButton verb='Sign In' />
 
                         <Grid container direction='column' >

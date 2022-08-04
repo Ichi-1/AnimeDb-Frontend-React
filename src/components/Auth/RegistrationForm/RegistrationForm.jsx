@@ -1,13 +1,13 @@
 import React from 'react';
-import AuthService from '../services/AuthService';
+import AuthService from '../../../api/AuthService';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import StyledLink from '../../UI/Link/StyledLink';
+import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SubmitButton } from '../../UI/Buttons/SubmitButton/SubmitButton'
+import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,16 +21,16 @@ export const RegistrationForm = () => {
         const nickname = data.get('nickname')
         const password = data.get('password')
         const email = data.get('email')
-    
+
         const request = await AuthService.fetchRegistration(
             nickname, email, password
         )
-        const response= await request.json()
-        
-    
+        const response = await request.json()
+
+
         if (request.status !== 201) {
             console.log('ERROR', request.status)
-    
+
             for (let field in response) {
                 let error = response[field]
                 console.log(`${field}: ${error.toString()}`)
@@ -38,7 +38,7 @@ export const RegistrationForm = () => {
         } else {
             navigate('/')
         }
-    
+
     };
 
     return (
@@ -67,14 +67,14 @@ export const RegistrationForm = () => {
                             name="nickname"
                             autoComplete="nickname"
                         />
-                        <MyTextField 
+                        <MyTextField
                             id="email"
                             label="Email"
                             name="email"
                             type="email"
                             autoComplete="current-email"
                         />
-                        <MyTextField 
+                        <MyTextField
                             id="password"
                             label="Password"
                             name="password"
@@ -83,7 +83,7 @@ export const RegistrationForm = () => {
                         />
 
 
-                        <SubmitButton verb='Sign Up'/>
+                        <SubmitButton verb='Sign Up' />
 
                         <Grid container direction='column' >
                             <Grid item p={1}>

@@ -1,5 +1,5 @@
 import classes from './Logo.module.css'
-import StyledLink from '../Link/StyledLink'
+import StyledLink from 'components/UI/Link/StyledLink'
 
 
 export const Logo = () => {

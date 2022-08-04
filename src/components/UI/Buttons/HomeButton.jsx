@@ -4,9 +4,9 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import HomeIcon from '@mui/icons-material/Home';
-import { DatabaseOptions } from '../Menu/HomeMenu/Options/DatabaseOptions'
-import { CommunityOptions } from '../Menu/HomeMenu/Options/CommunityOptions'
-import { InfoOptions } from '../Menu/HomeMenu/Options/InfoOptions'
+import { DatabaseOptions } from 'components/UI/Menu/HomeMenu/Options/DatabaseOptions'
+import { CommunityOptions } from 'components/UI/Menu/HomeMenu/Options/CommunityOptions'
+import { InfoOptions } from 'components/UI/Menu/HomeMenu/Options/InfoOptions'
 
 
 export const HomeButton = () => {

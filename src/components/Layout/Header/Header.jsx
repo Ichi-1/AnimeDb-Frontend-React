@@ -4,12 +4,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchBar from '../../SearchBar/SearchBar';
-import { Logo } from '../../UI/Logo/Logo'
-import { AccountButton } from '../../UI/Buttons/AccountButton'
-import { HomeButton } from '../../UI/Buttons/HomeButton'
-import { ForumButton } from '../../UI/Buttons/ForumButton';
-import { Notification } from '../../UI/Buttons/NotificationButton'
+import SearchBar from 'components/SearchBar/SearchBar';
+import { Logo } from 'components/UI/Logo/Logo'
+import { AccountButton } from 'components/UI/Buttons/AccountButton'
+import { HomeButton } from 'components/UI/Buttons/HomeButton'
+import { ForumButton } from 'components/UI/Buttons/ForumButton';
+import { Notification } from 'components/UI/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 

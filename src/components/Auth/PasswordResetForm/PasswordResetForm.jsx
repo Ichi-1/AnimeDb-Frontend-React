@@ -4,16 +4,16 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import StyledLink from '../../UI/Link/StyledLink';
+import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { handleResetPasswordSubmit } from '../RegistrationForm/handleSubmit';
-import { SubmitButton } from '../../UI/Buttons/SubmitButton/SubmitButton'
+import { handleResetPasswordSubmit } from 'components/Auth/RegistrationForm/handleSubmit';
+import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 
 const theme = createTheme();
 
 export const PasswordResetForm = () => {
-    
+
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -35,7 +35,7 @@ export const PasswordResetForm = () => {
                     </Typography>
 
                     <Box component="form" onSubmit={handleResetPasswordSubmit} noValidate sx={{ mt: 1 }}>
-                        <MyTextField 
+                        <MyTextField
                             name="email"
                             label="Email"
                             type="email"
@@ -57,11 +57,8 @@ export const PasswordResetForm = () => {
                                 </StyledLink>
                             </Grid>
                         </Grid>
-
-                        
                     </Box>
                 </Box>
-
             </Container>
         </ThemeProvider>
     );
