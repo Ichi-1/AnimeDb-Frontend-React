@@ -10,7 +10,7 @@ import AuthContext from 'components/Auth/context/AuthContext';
 
 
 
-export default function SiteMenu() {
+export const SiteOptions = () => {
     const  {logoutUser} = useContext(AuthContext)
 
     return (

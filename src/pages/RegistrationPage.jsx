@@ -1,12 +1,10 @@
 import React from 'react'
-import RegistrationForm from '../components/Auth/RegistrationForm/RegistrationForm'
+import { RegistrationForm } from '../components/Auth/RegistrationForm/RegistrationForm'
 
-const RegistrationPage = () => {
+export const RegistrationPage = () => {
   return (
     <div>
         <RegistrationForm />
     </div>
   )
 }
-
-export default RegistrationPage

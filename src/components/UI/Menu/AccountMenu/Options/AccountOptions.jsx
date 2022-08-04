@@ -12,7 +12,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
 
 
-export default function AccountMenu() {
+export const AccountOptions = () => {
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

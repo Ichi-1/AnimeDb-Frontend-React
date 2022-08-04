@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 
-export default function AccountMenu() {
+export const DatabaseOptions = () => {
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

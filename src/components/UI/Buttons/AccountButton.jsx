@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import AccountOptions from '../Menu/AccountMenu/Options/AccountOptions'
-import SiteOptions from '../Menu/AccountMenu/Options/SiteOptions'
-import MyAvatar from '../Avatar/Avatar';
+import { AccountOptions } from '../Menu/AccountMenu/Options/AccountOptions'
+import { SiteOptions } from '../Menu/AccountMenu/Options/SiteOptions'
+import { MyAvatar } from '../Avatar/Avatar';
 
-export default function DasahboardButton() {
+export const AccountButton = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {

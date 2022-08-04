@@ -3,7 +3,7 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-const Notification = () => {
+export const Notification = () => {
   return (
     <div>
         <IconButton size="large" aria-label="show new notifications" color="inherit">
@@ -15,4 +15,3 @@ const Notification = () => {
   )
 }
 
-export default Notification

@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
 
-const MyTextField = ({ id, label, name, autoComplete, type }) => {
+export const MyTextField = ({ id, label, name, autoComplete, type }) => {
     return (
         <TextField
             margin="normal"
@@ -18,4 +18,3 @@ const MyTextField = ({ id, label, name, autoComplete, type }) => {
     )
 }
 
-export default MyTextField

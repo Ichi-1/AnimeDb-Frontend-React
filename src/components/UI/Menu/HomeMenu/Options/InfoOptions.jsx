@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
 
-export default function AccountMenu() {
+export const InfoOptions = () => {
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

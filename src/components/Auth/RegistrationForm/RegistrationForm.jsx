@@ -1,21 +1,19 @@
 import React from 'react';
+import AuthService from '../services/AuthService';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {SubmitButton} from '../../UI/Buttons/SubmitButton/SubmitButton'
 import StyledLink from '../../UI/Link/StyledLink';
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SubmitButton } from '../../UI/Buttons/SubmitButton/SubmitButton'
+import { MyTextField } from 'components/UI/TextField/TextField';
 import { useNavigate } from 'react-router-dom';
-import AuthService from '../services/AuthService';
-
-import MyTextField from 'components/UI/TextField/TextField';
 
 const theme = createTheme();
 
-export default function RegistrationForm() {
+export const RegistrationForm = () => {
     const navigate = useNavigate();
     const handleSignUpSubmit = async (event) => {
         event.preventDefault();

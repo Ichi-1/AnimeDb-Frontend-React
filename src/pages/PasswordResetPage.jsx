@@ -1,7 +1,7 @@
 import React from 'react'
-import PasswordResetForm from '../components/Auth/PasswordResetForm/PasswordResetForm'
+import { PasswordResetForm } from '../components/Auth/PasswordResetForm/PasswordResetForm'
 
-const PasswordResetPage = () => {
+export const PasswordResetPage = () => {
   return (
     <div>
         <PasswordResetForm />
@@ -9,4 +9,3 @@ const PasswordResetPage = () => {
   )
 }
 
-export default PasswordResetPage

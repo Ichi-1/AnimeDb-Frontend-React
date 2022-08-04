@@ -1,21 +1,21 @@
 import React, { useContext } from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {SubmitButton} from '../../UI/Buttons/SubmitButton/SubmitButton';
-import StyledLink from '../../UI/Link/StyledLink';
 import AuthContext from '../context/AuthContext';
-import MyTextField from 'components/UI/TextField/TextField';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import StyledLink from '../../UI/Link/StyledLink';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SubmitButton } from '../../UI/Buttons/SubmitButton/SubmitButton';
+import { MyTextField } from 'components/UI/TextField/TextField';
+
 
 
 
 const theme = createTheme();
 
-export default function AuthorizationForm() {
+export const AuthorizationForm = () => {
     const {loginUser} = useContext(AuthContext)
 
     return (

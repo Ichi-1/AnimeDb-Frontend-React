@@ -1,8 +1,8 @@
 import React from 'react'
-import AuthorizationForm from '../components/Auth/AuthorizationForm/AuthorizationForm'
+import { AuthorizationForm } from '../components/Auth/AuthorizationForm/AuthorizationForm'
 
 
-const AuthorizationPage = () => {
+export const AuthorizationPage = () => {
   return (
     <div>  
         <AuthorizationForm />
@@ -10,4 +10,3 @@ const AuthorizationPage = () => {
   )
 }
 
-export default AuthorizationPage

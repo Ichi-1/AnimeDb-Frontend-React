@@ -4,16 +4,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-
 import SearchBar from '../../SearchBar/SearchBar';
-import Logo from '../../UI/Logo/Logo'
-import AccountButton from '../../UI/Buttons/AccountButton'
-import HomeButton from '../../UI/Buttons/HomeButton'
-import ForumButton from '../../UI/Buttons/ForumButton';
-import NotificationButton from '../../UI/Buttons/NotificationButton'
-
+import { Logo } from '../../UI/Logo/Logo'
+import { AccountButton } from '../../UI/Buttons/AccountButton'
+import { HomeButton } from '../../UI/Buttons/HomeButton'
+import { ForumButton } from '../../UI/Buttons/ForumButton';
+import { Notification } from '../../UI/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 
 
 const darkTheme = createTheme({
@@ -25,7 +22,7 @@ const darkTheme = createTheme({
     },
 });
 
-export default function Header() {
+export const Header = () => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
@@ -71,7 +68,7 @@ export default function Header() {
 
                         <Box sx={{ display: { xs: 'none', md: 'flex' }}}>
                             <ForumButton />
-                            <NotificationButton />
+                            <Notification />
                             <AccountButton />
                         </Box>
                     </Toolbar>

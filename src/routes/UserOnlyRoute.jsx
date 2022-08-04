@@ -2,7 +2,7 @@ import { useContext} from 'react';
 import AuthContext from 'components/Auth/context/AuthContext';
 import { Navigate, Outlet } from 'react-router-dom'
 
-const ProtectedRoutes = () => {
+export const UserOnlyRoute = () => {
     const { user } = useContext(AuthContext);
 
     if (!user) {
@@ -11,5 +11,3 @@ const ProtectedRoutes = () => {
 
     return <Outlet />
 };
-
-export default ProtectedRoutes

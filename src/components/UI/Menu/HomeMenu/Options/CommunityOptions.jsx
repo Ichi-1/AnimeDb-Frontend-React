@@ -10,7 +10,7 @@ import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
 
-export default function AccountMenu() {
+export const CommunityOptions = () => {
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

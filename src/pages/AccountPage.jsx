@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import AuthContext from 'components/Auth/context/AuthContext'
 
 
-const FakeAccountPage = () => {
+export const AccountPage = () => {
     const { authTokens } = useContext(AuthContext)
 
     useEffect(() => {
@@ -27,5 +27,3 @@ const FakeAccountPage = () => {
 
     )
 }
-
-export default FakeAccountPage
