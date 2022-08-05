@@ -7,11 +7,12 @@ import ListItemText from '@mui/material/ListItemText';
 import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import AuthContext from 'components/Auth/context/AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export const SiteOptions = () => {
     const  {logoutUser} = useContext(AuthContext)
+    const redirect = useNavigate()
 
     return (
         <List
@@ -36,7 +37,7 @@ export const SiteOptions = () => {
                 <ListItemIcon>
                     <LogoutRoundedIcon />
                 </ListItemIcon>
-                <ListItemText onClick={logoutUser} primary="Logout" />
+                <ListItemText onClick={() => {logoutUser(); redirect('/login')}} primary="Logout" />
             </ListItemButton>
 
         </List>

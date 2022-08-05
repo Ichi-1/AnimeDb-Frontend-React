@@ -22,7 +22,7 @@ export const RegistrationForm = () => {
         const password = data.get('password')
         const email = data.get('email')
 
-        const request = await AuthService.fetchRegistration(
+        const request = await AuthService.userRegistration(
             nickname, email, password
         )
         const response = await request.json()

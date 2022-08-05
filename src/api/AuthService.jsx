@@ -1,5 +1,5 @@
 export default class AuthService {
-    static async fetchLogin(nickname, password) {
+    static async userLogin(nickname, password) {
         const response =  await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/create/', {
             method: 'POST',
             headers: {
@@ -14,7 +14,36 @@ export default class AuthService {
         return response
     }
 
-    static async fetchRegistration(nickname, email, password) {
+    static async verifyToken(token) {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/verify/', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringify({
+                "token": token
+            })
+        })
+        return response
+    }
+
+    static async updateAccessToken(refreshToken) {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/refresh/', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringify({
+                "refresh": refreshToken
+            })
+
+        })
+        return response
+    }
+
+    static async userRegistration(nickname, email, password) {
         const response = await fetch('http://localhost:8000/api/v1/auth/sign-up/', {
             method: 'POST',
             headers: {

@@ -6,7 +6,7 @@ export const GuestOnlyRoutes = () => {
     const { user } = useContext(AuthContext);
 
     if (user) {
-        return <Navigate to="/account" replace />;
+        return <Navigate to="/" />;
     }
     return <Outlet />
 }
