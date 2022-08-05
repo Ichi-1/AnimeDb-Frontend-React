@@ -1,6 +1,6 @@
 export default class AuthService {
     static async userLogin(nickname, password) {
-        const response =  await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/create/', {
+        const response =  await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/create/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -15,7 +15,7 @@ export default class AuthService {
     }
 
     static async verifyToken(token) {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/verify/', {
+        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/verify/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -29,7 +29,7 @@ export default class AuthService {
     }
 
     static async updateAccessToken(refreshToken) {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/auth/jwt/refresh/', {
+        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/refresh/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -44,7 +44,7 @@ export default class AuthService {
     }
 
     static async userRegistration(nickname, email, password) {
-        const response = await fetch('http://localhost:8000/api/v1/auth/sign-up/', {
+        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/sign-up/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain',

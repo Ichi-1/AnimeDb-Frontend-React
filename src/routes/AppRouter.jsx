@@ -5,8 +5,8 @@ import { GuestOnlyRoutes } from './GuestOnlyRoutes';
 import { UserOnlyRoutes } from './UserOnlyRoutes';
 
 import { NotFound404 } from '../pages/NotFound404';
-import { HomePage } from '../pages/HomePage';
-import { AccountPage } from '../pages/AccountPage.jsx'
+import { HomePage } from '../pages/Home/HomePage';
+import { AccountPage } from '../pages/Account/AccountPage.jsx'
 import { AuthorizationPage } from '../pages/AuthorizationPage';
 import { RegistrationPage } from '../pages/RegistrationPage';
 import { PasswordResetPage } from '../pages/PasswordResetPage';

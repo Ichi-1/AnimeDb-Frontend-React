@@ -1,5 +1,5 @@
-import React from 'react';
-import AuthService from '../../../api/AuthService';
+import React, { useState } from 'react';
+import AuthService from 'api/AuthService';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,50 +9,36 @@ import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
-import { useNavigate } from 'react-router-dom';
+import { MyAlert } from 'components/Alert/Alert'
+
+import { signUpSubmit } from './handleSubmit';
+
 
 const theme = createTheme();
 
+
 export const RegistrationForm = () => {
-    const navigate = useNavigate();
-    const handleSignUpSubmit = async (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const nickname = data.get('nickname')
-        const password = data.get('password')
-        const email = data.get('email')
-
-        const request = await AuthService.userRegistration(
-            nickname, email, password
-        )
-        const response = await request.json()
-
-
-        if (request.status !== 201) {
-            console.log('ERROR', request.status)
-
-            for (let field in response) {
-                let error = response[field]
-                console.log(`${field}: ${error.toString()}`)
-            }
-        } else {
-            navigate('/')
-        }
-
-    };
+    const [messageStatus, setMessageStatus] = useState(null)
+    const [messageText, setMessageText] = useState(null)
 
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
+                
                 <CssBaseline />
+                
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 15,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
-                >
+                >   
+                {messageText &&
+                    <MyAlert variant={messageStatus} text={messageText} key={messageStatus} />
+                }
+                    
                     <Typography component="h1" variant="h5">
                         Registration
                     </Typography>
@@ -60,7 +46,17 @@ export const RegistrationForm = () => {
                         Create an account - it's free and only takes a minute.
                     </Typography>
 
-                    <Box component="form" noValidate onSubmit={handleSignUpSubmit} sx={{ mt: 1 }}>
+                    <Box sx={{ mt: 1 }} component="form" noValidate onSubmit={(e) => {
+                        signUpSubmit(e).then(result => {
+                            const status = result[0]
+                            const text = result[1]
+                            console.log(text)
+                            setMessageStatus(status)
+                            setMessageText(text)
+                        })
+                    }} 
+                    >
+
                         <MyTextField
                             id="nickname"
                             label="Login (nickname)"

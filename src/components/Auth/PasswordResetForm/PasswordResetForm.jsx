@@ -10,6 +10,8 @@ import { handleResetPasswordSubmit } from 'components/Auth/RegistrationForm/hand
 import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 
+import { MyAlert } from 'components/Alert/Alert'
+
 const theme = createTheme();
 
 export const PasswordResetForm = () => {
@@ -20,13 +22,14 @@ export const PasswordResetForm = () => {
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 15,
                         display: 'block',
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
-                >
+                >   
 
+                    {/* <MyAlert key={'success'} variant={'success'} /> */}
                     <Typography component="h1" variant="h5">
                         Password reset
                     </Typography>
