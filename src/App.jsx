@@ -1,7 +1,7 @@
 import './styles/App.css';
-
 import { AppRouter } from './routes/AppRouter';
 import { AuthProvider } from './components/Auth/context/AuthContext';
+
 
 export const App = () => {
   return (

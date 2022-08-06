@@ -25,7 +25,7 @@ export const AccountButton = () => {
                         disableRipple
                         onClick={handleClick}
                         size="large"
-                        sx={{ ml: 2 }}
+                        sx={{ ml: 1, mb: 1}}
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
@@ -49,8 +49,9 @@ export const AccountButton = () => {
                         '& .MuiAvatar-root': {
                             width: 32,
                             height: 32,
-                            ml: -0.5,
+                            mt: 0,
                             mr: 1,
+                            
                         },
                         '&:before': {
                             content: '""',
