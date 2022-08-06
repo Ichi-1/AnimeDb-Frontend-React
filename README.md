@@ -6,6 +6,6 @@
 	 - Generic style
 	 - Finish ResetPassword
 - Searching
-	~~~- Search Bar~~~
+	-	~~Search Bar~~
 	- Searching page
 	- Filters
