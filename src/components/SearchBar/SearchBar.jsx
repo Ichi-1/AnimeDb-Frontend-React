@@ -27,7 +27,6 @@ const SearchInputContainer = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    padding: 15px;
 `;
 
 const SearchInput = styled.input`
@@ -59,11 +58,12 @@ const SearchIcon = styled.span`
     font-size: 27px;
     margin-right: 10px;
     margin-top: -5px;
+    margin-left: 6px;
     vertical-align: middle;
 `;
 
 const CloseIcon = styled(motion.span)`
-    margin-right: 35px;
+    margin-right: 25px;
     color: #bebebe;
     font-size: 23px;
     vertical-align: middle;

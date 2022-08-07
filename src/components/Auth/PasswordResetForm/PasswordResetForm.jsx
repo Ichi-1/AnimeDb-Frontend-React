@@ -30,7 +30,7 @@ export const PasswordResetForm = () => {
                 >   
 
                     {/* <MyAlert key={'success'} variant={'success'} /> */}
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h4">
                         Password reset
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>

@@ -1,0 +1,15 @@
+.bodyBackground {
+    background-image: url(assets/images/layout-background.png);
+}
+
+.container {
+    background-color: white;
+    z-index: 98;
+    margin:  auto;
+    border: 2px solid red;
+    width: 60%;
+    height: 100vh;
+    
+}
+
+

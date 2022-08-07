@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header } from 'components/Layout/Header/Header'
 import { Outlet } from 'react-router-dom'
+import styles from './Layout.module.css'
 
 export const Layout = () => {
   return (
@@ -8,9 +9,14 @@ export const Layout = () => {
         <Header />
 
         {/*TODO main block should be styled */}
-        <main>
-            <Outlet />   
-        </main>
+        <body className={styles.bodyBackground}>
+            <main className={styles.container}>
+                <Outlet />   
+            </main>
+        </body>
+        
+    
+        
 
         {/* <Footer /> */}
     </div>

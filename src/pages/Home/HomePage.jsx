@@ -2,21 +2,24 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import AuthContext from '../../components/Auth/context/AuthContext'
 import classess from './HomePage.module.css'
+import StyledLink from 'components/UI/Link/StyledLink'
+import Typography from '@mui/material/Typography';
 
 export const HomePage = () => {
     const { user } = useContext(AuthContext)
     return (
         <div className={classess.Home}  style={{ marginTop: "35px" }}>
             {user
-                ? <h1>Hello, {user.nickname}</h1>
-                : <h1>Hello Anonymous User</h1>
-
+                
+                ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography> 
+                : <Typography component="h1" variant="h4">Hello, anonymous </Typography> 
+               
             }
 
             <p>
-                <Link to='/account'>
+                <StyledLink to='/account'>
                     Content only for auhtenticated users
-                </Link>
+                </StyledLink>
             </p>
         </div>
     )

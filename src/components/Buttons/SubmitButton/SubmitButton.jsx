@@ -6,7 +6,7 @@ export const SubmitButton = (props) => {
     <div>
         <Button
         style={{
-                backgroundColor: "teal",
+                backgroundColor: "#575a60",
 
             }}
               type="submit"

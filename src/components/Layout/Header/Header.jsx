@@ -17,16 +17,17 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: '#0a0e12',
+            main: '#34373a',
         },
     },
 });
 
 const  Container = styled.div`
-    border: hidden;
+    margin: auto;
     z-index: 99;
     height:78px;
     width:100%;
+    line-height:100%;
 `;
 
 
@@ -66,16 +67,21 @@ export const Header = () => {
     return (
         <Box sx={{
                 flexGrow: 1,
-                border: "5px solid #191a1bf7",
             }}>
             <ThemeProvider theme={darkTheme}>
-                <AppBar position="static" color="primary" style={{ background: '#191a1b', paddingTop:"6px" }}>
+                <AppBar 
+                    position="static" 
+                    color="primary" 
+                    style={{ 
+                        background: '#34373a', 
+                        paddingTop:"7px", 
+                        paddingBottom:"7px" 
+                    }}>
                     <Toolbar>
                         <Logo />
                         <HomeButton />
                         <Container>
                             <SearchBar />
-
                         </Container>
 
                         <ForumButton />

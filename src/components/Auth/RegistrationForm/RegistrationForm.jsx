@@ -39,7 +39,7 @@ export const RegistrationForm = () => {
                     <MyAlert variant={messageStatus} text={messageText} key={messageStatus} />
                 }
                     
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h4">
                         Registration
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>

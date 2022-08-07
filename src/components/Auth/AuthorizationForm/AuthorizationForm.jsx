@@ -9,8 +9,7 @@ import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
 import { MyTextField } from 'components/UI/TextField/TextField';
-import { MyAlert } from 'components/Alert/Alert'
-import styled from 'styled-components'
+
 
 
 
@@ -25,6 +24,7 @@ export const AuthorizationForm = () => {
                 <CssBaseline />
                 <Box
                     sx={{
+                        // margin:'auto',
                         marginTop: 15,
                         display: 'flex',
                         flexDirection: 'column',
@@ -32,7 +32,7 @@ export const AuthorizationForm = () => {
                     }}
                 >
                     {/* <MyAlert key={'success'} variant={'success'} /> */}
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h4">
                         Authorization
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
