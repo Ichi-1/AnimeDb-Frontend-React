@@ -37,15 +37,16 @@ const Rating = styled.span`
   flex: 0.2;
 `;
 
-export function AnimeScreen({imageSrc, title, rating}) {
-  
-  return (
-    <AnimeScreenContainer>
-      <PosterImage>
-        <img src={imageSrc} />
-      </PosterImage>
-      <Title>{title}</Title>
-      <Rating>{rating || "N/A"}</Rating>
-    </AnimeScreenContainer>
-  );
+
+export function AnimeScreen({ imageSrc, title, rating }) {
+
+    return (
+        <AnimeScreenContainer>
+            <PosterImage>
+                <img src={imageSrc} />
+            </PosterImage>
+            <Title>{title}</Title>
+            <Rating>{rating || "N/A"}</Rating>
+        </AnimeScreenContainer>
+    );
 }

@@ -6,10 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Logo } from 'components/UI/Logo/Logo'
-import { AccountButton } from 'components/UI/Buttons/AccountButton'
-import { HomeButton } from 'components/UI/Buttons/HomeButton'
-import { ForumButton } from 'components/UI/Buttons/ForumButton';
-import { Notification } from 'components/UI/Buttons/NotificationButton'
+import { AccountButton } from 'components/Buttons/AccountButton'
+import { HomeButton } from 'components/Buttons/HomeButton'
+import { ForumButton } from 'components/Buttons/ForumButton';
+import { Notification } from 'components/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import styled from 'styled-components'
 
@@ -66,10 +66,10 @@ export const Header = () => {
     return (
         <Box sx={{
                 flexGrow: 1,
-                border: "3px solid #191a1bf7",
+                border: "5px solid #191a1bf7",
             }}>
             <ThemeProvider theme={darkTheme}>
-                <AppBar position="static" color="primary" style={{ background: '#191a1b' }}>
+                <AppBar position="static" color="primary" style={{ background: '#191a1b', paddingTop:"6px" }}>
                     <Toolbar>
                         <Logo />
                         <HomeButton />

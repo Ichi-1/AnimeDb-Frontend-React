@@ -24,7 +24,7 @@ export const signUpSubmit = async (event) => {
     return ['success', 'Activation link was sended']
 };
 
-
+// TODO
 export const handleResetPasswordSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

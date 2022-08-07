@@ -1,15 +1,15 @@
-export interface IMoviePoster {
+export interface IAnimePoster {
     previewUrl: string;
     url: string;
 }
 
-interface IMovieTrailer {
+interface IAnimeTrailer {
     name: string;
     site: string;
     url: string;
 }
 
-export interface IMovieRating {
+export interface IAnimeRating {
     await: number;
     filmCritics: number;
     imdb: number;
@@ -17,29 +17,20 @@ export interface IMovieRating {
     russianFilmCritics: number;
 }
 
-interface IMovieBudget {
-    currency: string;
-    value: number;
-}
-
-interface IMoviePremiere {
+interface IAnimePremiere {
     cinema: Date;
     country: string;
     russia: Date;
     world: Date;
 }
 
-interface IMovieSeasonsInfo {
+interface IAnimeSeasonsInfo {
     number: number;
     episodesCount: number;
 }
 
-interface IMovieTechnology {
-    has3D: boolean;
-    hasImax: boolean;
-}
 
-export interface IMoviePerson {
+export interface IAnimePerson {
     id: number;
     name: string;
     enName: string;
@@ -48,87 +39,68 @@ export interface IMoviePerson {
     photo: string;
 }
 
-interface IMovieDistributors {
+interface IAnimeDistributors {
     distributor: string;
     distributorRelease: null;
 }
 
-interface IMovieProdComp {
+interface IAnimeProdComp {
     name: string;
     previewUrl: string;
     url: string;
 }
 
-interface IMovieSequels {
+interface IAnimeSequels {
     alternativeName: string;
     enName: string;
     id: number;
-    poster: IMoviePoster;
+    poster: IAnimePoster;
     type: string;
 }
 
-export interface ISimilarMovie {
+export interface ISimilarAnime {
     alternativeName: string;
     enName: string;
     id: number;
     name: string;
-    poster: IMoviePoster;
+    poster: IAnimePoster;
 }
 
-interface IMovieLang {
-    name: string;
-    nameEn: string;
-}
 
-type Fees = {
-    value: number;
-    currency: string;
-}
-
-interface IMovieFees {
-    usa: Fees;
-    world: Fees;
-}
-
-export interface IMovie {
+export interface IAnime {
     ageRating: number;
     alternativeName: string;
     backdrop: {url: string};
-    budget: IMovieBudget;
     countries: {name: string}[];
     createDate: Date;
     description: string;
-    distributors: IMovieDistributors;
-    fees: IMovieFees;
+    distributors: IAnimeDistributors;
     genres: {name: string}[];
     id: number;
     enName: string;
     images: {framesCount: number}
     lists: [];
     logo: {url: string}
-    movieLength: number;
+    AnimeLength: number;
     name: string;
     names: {name: string}[];
-    persons: IMoviePerson[];
-    poster: IMoviePoster;
-    premiere: IMoviePremiere;
-    productionCompanies: IMovieProdComp[];
-    rating: IMovieRating;
+    persons: IAnimePerson[];
+    poster: IAnimePoster;
+    premiere: IAnimePremiere;
+    productionCompanies: IAnimeProdComp[];
+    rating: IAnimeRating;
     ratingMpaa: string;
-    seasonsInfo?: IMovieSeasonsInfo[];
-    sequelsAndPrequels: IMovieSequels[];
+    seasonsInfo?: IAnimeSeasonsInfo[];
+    sequelsAndPrequels: IAnimeSequels[];
     shortDescription: string;
-    similarMovies: IMovie[];
-    slogan: string;
-    spokenLanguages: IMovieLang[];
+    similarAnimes: IAnime[];
     status: string;
-    technology: IMovieTechnology;
     ticketsOnSale: boolean;
     type: string;
     typeNumber: number;
     updateDates: Date[];
     updatedAt: Date;
-    videos: {trailers: IMovieTrailer[]};
-    votes: IMovieRating;
+    videos: {trailers: IAnimeTrailer[]};
+    votes: IAnimeRating;
     year: number;
 }

@@ -8,8 +8,8 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
-import axios from "axios";
 import { AnimeScreen } from "components/Anime/AnimeSearchScreen";
+import AnimeSerivce from "api/AnimeService";
 
 const SearchBarContainer = styled(motion.div)`
     margin: auto;
@@ -19,9 +19,6 @@ const SearchBarContainer = styled(motion.div)`
     width:34em;
     background-color: #fff;
     box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
-    
-
-
 `;
 
 const SearchInputContainer = styled.div`
@@ -81,8 +78,8 @@ const CloseIcon = styled(motion.span)`
 const LineSeperator = styled.span`
     display: flex;
     min-width: 100%;
-    min-height: 2px;
-    margin-top: 0px;
+    min-height: 1.5px;
+    margin-top: 1.5px;
     background-color: #d8d8d878;
 `;
 
@@ -123,6 +120,7 @@ const containerVariants = {
 
 const containerTransition = { type: "spring", damping: 22, stiffness: 150 };
 
+
 export const SearchBar = (props) => {
     const [isExpanded, setExpanded] = useState(false);
     const [parentRef, isClickedOutside] = useClickOutside();
@@ -131,7 +129,6 @@ export const SearchBar = (props) => {
     const [isLoading, setLoading] = useState(false);
     const [animeQueryResult, setAnimeQueryResult] = useState([]);
     const [noQueryResult, setNoQueryResult] = useState(false);
-
     const isEmpty = !animeQueryResult || animeQueryResult.length === 0;
 
     const changeHandler = (e) => {
@@ -158,31 +155,21 @@ export const SearchBar = (props) => {
         if (isClickedOutside) collapseContainer();
     }, [isClickedOutside]);
 
-    const prepareSearchQuery = (query) => {
-        const url = `https://anidb-api.herokuapp.com/api/v1/animes/?search=${query}`;
-
-        return encodeURI(url);
-    };
 
     const searchAnime = async () => {
         if (!searchQuery || searchQuery.trim() === "") return;
-
         setLoading(true);
         setNoQueryResult(false);
 
-        const URL = prepareSearchQuery(searchQuery);
+        const response = await AnimeSerivce.fullTextSearch(searchQuery)
+        const data = await response.json()
+        const searchResult = data.results
 
-        const response = await axios.get(URL).catch((err) => {
-            console.log("Error: ", err);
-        });
-
-        if (response) {
-            console.log("Response: ", response.data);
-            if (response.data['results'] && response.data['results'].length === 0) setNoQueryResult(true);
-
-            setAnimeQueryResult(response.data['results']);
+        if (!response ||searchResult.length === 0 ) {
+            console.log(response.status)
+            setNoQueryResult(true);
         }
-
+        setAnimeQueryResult(searchResult);
         setLoading(false);
     };
 
@@ -205,6 +192,7 @@ export const SearchBar = (props) => {
                     ref={inputRef}
                     value={searchQuery}
                     onChange={changeHandler}
+                
                 />
                 <AnimatePresence>
                     {isExpanded && (
@@ -242,7 +230,8 @@ export const SearchBar = (props) => {
                     {!isLoading && !isEmpty && (
                         <>
                             {animeQueryResult.map((show) => (
-                                <AnimeScreen 
+                                <AnimeScreen
+                                    key={show.id}
                                     imageSrc={show.poster_image} 
                                     title={show.title} 
                                     rating={show.average_rating}

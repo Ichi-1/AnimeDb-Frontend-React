@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { handleResetPasswordSubmit } from 'components/Auth/RegistrationForm/handleSubmit';
-import { SubmitButton } from 'components/UI/Buttons/SubmitButton/SubmitButton'
+import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 
 import { MyAlert } from 'components/Alert/Alert'
