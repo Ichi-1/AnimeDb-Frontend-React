@@ -1,3 +1,7 @@
 .Home {
-    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    align-items: center;
+    
 }

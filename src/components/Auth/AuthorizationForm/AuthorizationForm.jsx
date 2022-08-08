@@ -10,8 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
 import { MyTextField } from 'components/UI/TextField/TextField';
 
-
-
+import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons';
 
 const theme = createTheme();
 
@@ -52,10 +51,10 @@ export const AuthorizationForm = () => {
                             type="password"
                             autoComplete="current-password"
                         />
-
-                        <SubmitButton verb='Sign In' />
-
-                        <Grid container direction='column' >
+                        
+                        <SubmitButton verb='Login' />
+                        
+                        <Grid container>
                             <Grid item p={1}>
                                 <StyledLink to="/sign_up">
                                     Register new account
@@ -68,6 +67,8 @@ export const AuthorizationForm = () => {
                                 </StyledLink>
                             </Grid>
                         </Grid>
+                        <hr/>
+                        <SocialAuthButtons />
                     </Box>
                 </Box>
 

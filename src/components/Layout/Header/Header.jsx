@@ -73,9 +73,10 @@ export const Header = () => {
                     position="static" 
                     color="primary" 
                     style={{ 
-                        background: '#34373a', 
+                        background: '#292b2d', 
                         paddingTop:"7px", 
-                        paddingBottom:"7px" 
+                        paddingBottom:"7px",
+                        fontFamily: "'Roboto', sans-serif"
                     }}>
                     <Toolbar>
                         <Logo />

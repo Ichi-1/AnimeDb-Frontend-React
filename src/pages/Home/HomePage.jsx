@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 export const HomePage = () => {
     const { user } = useContext(AuthContext)
     return (
-        <div className={classess.Home}  style={{ marginTop: "35px" }}>
+        <div className={classess.Home}>
             {user
                 
                 ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography> 
@@ -16,11 +16,13 @@ export const HomePage = () => {
                
             }
 
-            <p>
-                <StyledLink to='/account'>
+            
+            <Typography variant="caption" display="block" gutterBottom>
+                <StyledLink   to='/account'>
                     Content only for auhtenticated users
                 </StyledLink>
-            </p>
+            </Typography>
+         
         </div>
     )
 }
