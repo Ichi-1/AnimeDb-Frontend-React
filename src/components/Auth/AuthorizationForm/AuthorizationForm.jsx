@@ -54,7 +54,7 @@ export const AuthorizationForm = () => {
                         
                         <SubmitButton verb='Login' />
                         
-                        <Grid container>
+                        <Grid container direction='column'>
                             <Grid item p={1}>
                                 <StyledLink to="/sign_up">
                                     Register new account

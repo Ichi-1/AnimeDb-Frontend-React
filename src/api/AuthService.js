@@ -58,5 +58,21 @@ export default class AuthService {
         })
         return response
     }
+
+    static async googleAuth(id_token) {
+        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/oauth2/google/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "id_token": id_token
+            })
+           
+        })
+        return response
+    }   
+       
 }   
 

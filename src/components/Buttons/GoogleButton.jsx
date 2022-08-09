@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react'
-import jwt_decode from 'jwt-decode';
+import AuthService from 'api/AuthService'
+import { AuthProvider } from 'components/Auth/context/AuthContext'
 
 export const GoogleButton = () => {
 
-    const handleCallbackResponse = (response) => {
-        const userObj = jwt_decode(response.credential)
-        console.log(userObj)
+    const handleCallbackResponse = async (response) => {
+        const id_token = await response.credential
+        console.log(id_token)
+        const backend_response = await AuthService.googleAuth(id_token)
+        
+        const data = await backend_response.json()
+        console.log(data)
     }
+
+    
 
     /* global google */
     useEffect(() => {
         google.accounts.id.initialize({
             client_id:'147313732364-8asvecsn21coga31elgb58qo5pgbhape.apps.googleusercontent.com',
-            callback:handleCallbackResponse
+            callback:handleCallbackResponse,
         })
 
         google.accounts.id.renderButton(

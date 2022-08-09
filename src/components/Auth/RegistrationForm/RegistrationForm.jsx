@@ -12,7 +12,7 @@ import { MyTextField } from 'components/UI/TextField/TextField';
 import { MyAlert } from 'components/Alert/Alert'
 
 import { signUpSubmit } from './handleSubmit';
-
+import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons';
 
 const theme = createTheme();
 
@@ -94,6 +94,8 @@ export const RegistrationForm = () => {
                                 </StyledLink>
                             </Grid>
                         </Grid>
+                        <hr/>
+                        <SocialAuthButtons />
                     </Box>
                 </Box>
 
