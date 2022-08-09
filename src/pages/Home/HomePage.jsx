@@ -9,12 +9,13 @@ export const HomePage = () => {
     const { user } = useContext(AuthContext)
     return (
         <div className={classess.Home}>
-            {user
-                
+       
+            {user 
                 ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography> 
                 : <Typography component="h1" variant="h4">Hello, anonymous </Typography> 
-               
+
             }
+            
 
             
             <Typography variant="caption" display="block" gutterBottom>

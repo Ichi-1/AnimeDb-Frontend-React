@@ -1,25 +1,17 @@
-import React, { useEffect } from 'react'
-import AuthService from 'api/AuthService'
-import { AuthProvider } from 'components/Auth/context/AuthContext'
+import React, { useEffect, useContext } from 'react'
+// import AuthService from 'api/AuthService'
+// import jwt_decode from 'jwt-decode'
+import AuthContext from 'components/Auth/context/AuthContext'
+
 
 export const GoogleButton = () => {
-
-    const handleCallbackResponse = async (response) => {
-        const id_token = await response.credential
-        console.log(id_token)
-        const backend_response = await AuthService.googleAuth(id_token)
-        
-        const data = await backend_response.json()
-        console.log(data)
-    }
-
+    const { handleGoogleResponse  } = useContext(AuthContext)
     
-
     /* global google */
     useEffect(() => {
         google.accounts.id.initialize({
             client_id:'147313732364-8asvecsn21coga31elgb58qo5pgbhape.apps.googleusercontent.com',
-            callback:handleCallbackResponse,
+            callback:handleGoogleResponse,
         })
 
         google.accounts.id.renderButton(
@@ -31,7 +23,7 @@ export const GoogleButton = () => {
 
     return (
         <div>
-            <div fullWidht id="signInDiv"></div>
+            <div id="signInDiv"></div>
         </div>
         
     )

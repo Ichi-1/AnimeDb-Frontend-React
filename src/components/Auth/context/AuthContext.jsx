@@ -16,6 +16,25 @@ export const AuthProvider = ({ children }) => {
     )
     const [loading, setLoadgin] = useState(true)
 
+
+    const handleGoogleResponse = async (response) => {
+        const id_token = await response.credential
+        const backend_response = await AuthService.googleAuth(id_token)
+        const data = await backend_response.json()
+
+        if (backend_response.status === 201) {
+            setAuthTokens(data.tokens)
+            setSocialName(data.username)
+
+            localStorage.setItem('JWT', JSON.stringify(data.tokens))
+
+            window.location.reload()
+        } else {
+            console.log(backend_response.status)
+        }
+
+        const profile_picture = jwt_decode(id_token).picture
+    }
     
     const loginUser = async (event) => {
         console.log('Login User called')
@@ -80,6 +99,8 @@ export const AuthProvider = ({ children }) => {
         loginUser: loginUser,
         logoutUser: logoutUser,
         authTokens: authTokens,
+        handleGoogleResponse: handleGoogleResponse,
+        socialName: socialName,
     }
 
     useEffect(() => {
