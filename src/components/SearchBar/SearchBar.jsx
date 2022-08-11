@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useClickOutside } from "react-click-outside-hook";
 import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
-import { AnimeScreen } from "components/Anime/AnimeSearchScreen";
+import { AnimeScreen } from "components/Anime/SearchBarItem";
 import AnimeSerivce from "api/AnimeService";
 
 

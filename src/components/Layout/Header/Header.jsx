@@ -76,7 +76,7 @@ export const Header = () => {
                         background: '#292b2d', 
                         paddingTop:"7px", 
                         paddingBottom:"7px",
-                        fontFamily: "'Roboto', sans-serif"
+                        fontFamily: "'Roboto', sans-serif",
                     }}>
                     <Toolbar>
                         <Logo />

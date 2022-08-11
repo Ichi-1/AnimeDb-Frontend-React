@@ -1,0 +1,32 @@
+.header {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    text-align: left;
+    
+}
+
+.contentBlock {
+    display: flex;
+    /* height: calc( 100vh - 30px); */
+   /* calculate the height. Header is 30px */
+   /* border:1px solid red */
+}
+
+.content {
+    width: 100%;
+    /* border:1px solid red; */
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+}
+
+
+
+.sideBar {
+    width: 25%;
+    text-align: left;
+}
+
+

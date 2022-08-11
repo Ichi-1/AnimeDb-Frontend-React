@@ -1,14 +1,17 @@
 .bodyBackground {
-    background-image: url(assets/images/layout-background.png);
+    background-color: #F4F4F4;
+    height:100vh;
+    position:relative;
 }
 
 .container {
-    background-color: white;
-    z-index: 98;
-    margin:  auto;
-    border: 2px solid red;
-    width: 60%;
-    height: 100vh;
+    position:relative;
+    /* border:2px solid red; */
+    height:100vh;
+    width:60%;
+    margin:0 auto;
+    background-color: #ffff;
+    border: 1px solid #ffff;
     
 }
 

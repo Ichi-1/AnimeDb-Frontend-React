@@ -40,7 +40,7 @@ export const AccountOptions = () => {
       </ListItemButton>
 
 
-      <StyledLink to='/account'>
+      <StyledLink style={{color:'white'}} to='/account'>
         <ListItemButton>
             <ListItemIcon>
             <SettingsOutlinedIcon />

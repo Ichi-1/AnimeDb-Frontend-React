@@ -8,7 +8,6 @@ import { DatabaseOptions } from 'components/UI/Menu/HomeMenu/Options/DatabaseOpt
 import { CommunityOptions } from 'components/UI/Menu/HomeMenu/Options/CommunityOptions'
 import { InfoOptions } from 'components/UI/Menu/HomeMenu/Options/InfoOptions'
 
-
 export const HomeButton = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
