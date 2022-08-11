@@ -61,7 +61,7 @@ export const AccountButton = () => {
                             right: 14,
                             width: 10,
                             height: 10,
-                            bgcolor: 'yellow',
+                            bgcolor: '#f97a44',
                             transform: 'translateY(-50%) rotate(45deg)',
                             zIndex: 0,
                         },

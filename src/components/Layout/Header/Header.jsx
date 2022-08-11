@@ -23,7 +23,7 @@ const darkTheme = createTheme({
 });
 
 const  Container = styled.div`
-    margin: auto;
+    margin-right: 110px;
     z-index: 99;
     height:78px;
     width:100%;
@@ -69,10 +69,11 @@ export const Header = () => {
                 flexGrow: 1,
             }}>
             <ThemeProvider theme={darkTheme}>
-                <AppBar 
+                <AppBar
                     position="static" 
                     color="primary" 
-                    style={{ 
+                    style={{
+                        display:'flex',
                         background: '#292b2d', 
                         paddingTop:"7px", 
                         paddingBottom:"7px",

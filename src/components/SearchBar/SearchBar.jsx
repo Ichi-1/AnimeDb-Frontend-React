@@ -160,15 +160,13 @@ export const SearchBar = (props) => {
         setLoading(true);
         setNoQueryResult(false);
 
-        const response = await AnimeSerivce.fetchSearch(query)
-        const searchResult = response.data.result
-
-        if (!response || searchResult.length === 0) {
-            console.log(response.status)
+        const response = await AnimeSerivce.getByQuery(query)
+        
+        if (response.data.result.length === 0) {
             setNoQueryResult(true);
         }
 
-        setQueryResult(searchResult);
+        setQueryResult(response.data.result);
         setLoading(false);
     };
 
