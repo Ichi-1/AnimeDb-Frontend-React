@@ -10,7 +10,6 @@ import { handleResetPasswordSubmit } from 'components/Auth/RegistrationForm/hand
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 
-import { MyAlert } from 'components/Alert/Alert'
 
 const theme = createTheme();
 

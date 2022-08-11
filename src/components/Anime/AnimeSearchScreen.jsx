@@ -38,10 +38,10 @@ const Rating = styled.span`
 `;
 
 
-export function AnimeScreen({ imageSrc, title, rating }) {
+export function AnimeScreen({ imageSrc, title, rating, innerRef }) {
 
     return (
-        <AnimeScreenContainer>
+        <AnimeScreenContainer ref={innerRef}>
             <PosterImage>
                 <img src={imageSrc} />
             </PosterImage>

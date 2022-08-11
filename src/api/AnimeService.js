@@ -1,22 +1,15 @@
+import axios from "axios";
+
 export default class AnimeSerivce {
-    static async fullTextSearch(query) {
-        const URL = `https://anidb-api.herokuapp.com/api/v1/animes/?search=`;
-        const searchQueryEncoded = encodeURI(URL+query)
-        
-        const response = await fetch(searchQueryEncoded, {
-                method: 'GET',
-                headers: {
-                    'accept':'application/json'
-                }
+
+    static async fetchSearch(query, page=1) {
+        const response = await axios.get("https://anidb-api.herokuapp.com/api/v1/animes/", {
+            params: {
+                search: query,
+                page: page
             }
-        )
-        return response
-        
+        })
+        return response;
     }
 
-
-    // static async sortBy() {
-
-    // }
-    
 }

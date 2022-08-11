@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }) => {
 
     const handleGoogleResponse = async (response) => {
         const id_token = await response.credential
+        console.log(id_token)
         const backend_response = await AuthService.googleAuth(id_token)
         const data = await backend_response.json()
 
         if (backend_response.status === 201) {
             setAuthTokens(data.tokens)
-            setSocialName(data.username)
 
             localStorage.setItem('JWT', JSON.stringify(data.tokens))
 
@@ -100,7 +100,6 @@ export const AuthProvider = ({ children }) => {
         logoutUser: logoutUser,
         authTokens: authTokens,
         handleGoogleResponse: handleGoogleResponse,
-        socialName: socialName,
     }
 
     useEffect(() => {

@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { IoClose, IoSearch } from "react-icons/io5";
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useClickOutside } from "react-click-outside-hook";
-import { useEffect } from "react";
-import { useRef } from "react";
 import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
 import { AnimeScreen } from "components/Anime/AnimeSearchScreen";
 import AnimeSerivce from "api/AnimeService";
+
 
 const SearchBarContainer = styled(motion.div)`
     margin: auto;
@@ -122,20 +120,21 @@ const containerTransition = { type: "spring", damping: 22, stiffness: 150 };
 
 
 export const SearchBar = (props) => {
+    // Input animamation hooks
     const [isExpanded, setExpanded] = useState(false);
     const [parentRef, isClickedOutside] = useClickOutside();
     const inputRef = useRef();
-    const [searchQuery, setSearchQuery] = useState("");
+    // Searching hooks
+    const [query, setQuery] = useState("");
     const [isLoading, setLoading] = useState(false);
-    const [animeQueryResult, setAnimeQueryResult] = useState([]);
+    const [queryResult, setQueryResult] = useState([]);
     const [noQueryResult, setNoQueryResult] = useState(false);
-    const isEmpty = !animeQueryResult || animeQueryResult.length === 0;
+    const isEmpty = !query || queryResult.length === 0;
 
     const changeHandler = (e) => {
         e.preventDefault();
         if (e.target.value.trim() === "") setNoQueryResult(false);
-
-        setSearchQuery(e.target.value);
+        setQuery(e.target.value);
     };
 
     const expandContainer = () => {
@@ -144,10 +143,10 @@ export const SearchBar = (props) => {
 
     const collapseContainer = () => {
         setExpanded(false);
-        setSearchQuery("");
+        setQuery("");
         setLoading(false);
         setNoQueryResult(false);
-        setAnimeQueryResult([]);
+        setQueryResult([]);
         if (inputRef.current) inputRef.current.value = "";
     };
 
@@ -156,24 +155,24 @@ export const SearchBar = (props) => {
     }, [isClickedOutside]);
 
 
-    const searchAnime = async () => {
-        if (!searchQuery || searchQuery.trim() === "") return;
+    const searchContent = async () => {
+        if (!query || query.trim() === "") return;
         setLoading(true);
         setNoQueryResult(false);
 
-        const response = await AnimeSerivce.fullTextSearch(searchQuery)
-        const data = await response.json()
-        const searchResult = data.results
+        const response = await AnimeSerivce.fetchSearch(query)
+        const searchResult = response.data.result
 
-        if (!response ||searchResult.length === 0 ) {
+        if (!response || searchResult.length === 0) {
             console.log(response.status)
             setNoQueryResult(true);
         }
-        setAnimeQueryResult(searchResult);
+
+        setQueryResult(searchResult);
         setLoading(false);
     };
 
-    useDebounce(searchQuery, 500, searchAnime);
+    useDebounce(query, 500, searchContent);
 
     return (
         <SearchBarContainer
@@ -190,9 +189,9 @@ export const SearchBar = (props) => {
                     placeholder="Search for Anime series ... "
                     onFocus={expandContainer}
                     ref={inputRef}
-                    value={searchQuery}
+                    value={query}
                     onChange={changeHandler}
-                
+
                 />
                 <AnimatePresence>
                     {isExpanded && (
@@ -229,15 +228,15 @@ export const SearchBar = (props) => {
                     )}
                     {!isLoading && !isEmpty && (
                         <>
-                            {animeQueryResult.map((show) => (
-                                <AnimeScreen
+                            {queryResult.map((show, index) => {
+                                return <AnimeScreen
                                     key={show.id}
-                                    imageSrc={show.poster_image} 
-                                    title={show.title} 
+                                    imageSrc={show.poster_image}
+                                    title={show.title}
                                     rating={show.average_rating}
 
                                 />
-                            ))}
+                            })}
                         </>
                     )}
                 </SearchContent>
