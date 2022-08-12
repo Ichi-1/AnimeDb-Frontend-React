@@ -5,7 +5,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 
 export const Notification = () => {
   return (
-    <div>
+    <div style={{padding:0, marginTop:5}}>
         <IconButton size="large" aria-label="show new notifications" color="inherit">
             <Badge badgeContent={5} color="error">
                 <NotificationsIcon />

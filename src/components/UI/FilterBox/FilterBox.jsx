@@ -3,7 +3,6 @@ import styles from './FilterBox.module.css'
 import { MyCheckBox } from 'components/UI/CheckBox/CheckBox';
 
 
-
 export const FilterBox = () => {
     return (
         <div>

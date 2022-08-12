@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,6 +11,9 @@ import { HomeButton } from 'components/Buttons/HomeButton'
 import { ForumButton } from 'components/Buttons/ForumButton';
 import { Notification } from 'components/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AuthContext from 'components/Auth/context/AuthContext';
+import { LoginButton } from 'components/Buttons/LoginButton';
+
 import styled from 'styled-components'
 
 const darkTheme = createTheme({
@@ -23,7 +26,7 @@ const darkTheme = createTheme({
 });
 
 const  Container = styled.div`
-    margin-right: 110px;
+    margin-right: 150px;
     z-index: 99;
     height:78px;
     width:100%;
@@ -32,6 +35,7 @@ const  Container = styled.div`
 
 
 export const Header = () => {
+    const { user  } = useContext(AuthContext)
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
@@ -87,8 +91,13 @@ export const Header = () => {
                         </Container>
 
                         <ForumButton />
-                        <Notification />
-                        <AccountButton />
+                        {user
+                            ?   <div style={{display:'flex', flexDirection:'row'}}>
+                                    <Notification /> 
+                                    <AccountButton />
+                                </div>
+                            : <LoginButton />
+                        }
                     </Toolbar>
                 </AppBar>
             </ThemeProvider>

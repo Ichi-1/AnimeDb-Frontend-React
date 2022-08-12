@@ -41,17 +41,19 @@ export const AnimeSearchPage = () => {
     return (
         <div>
             <div className={styles.header}>
+                
                 <Typography component="h3" variant="h7">
                     Anime
                 </Typography>
                 <Typography variant="caption" display="block" gutterBottom>
                     This page displays anime sorted by average rating
                 </Typography>
-                {/* <Pagination
+
+                <Pagination
                     page={page}
                     count={totalPages}
-                    onChange={handlePagination}
-                /> */}
+                    // onChange={handlePagination}
+                />
 
             </div>
 

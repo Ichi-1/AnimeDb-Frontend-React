@@ -13,7 +13,7 @@ export default class AuthService {
         })
         return response
     }
-
+    
     static async verifyToken(token) {
         const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/verify/', {
             method: 'POST',

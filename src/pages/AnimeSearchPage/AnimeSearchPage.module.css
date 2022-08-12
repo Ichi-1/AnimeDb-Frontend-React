@@ -1,31 +1,37 @@
 .header {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
     margin-bottom: 15px;
-    margin-left: 20px;
     text-align: left;
-    
+    justify-content: space-evenly;
+    margin-left: 40px;
 }
 
 .contentBlock {
+    width: 100%;
     display: flex;
-    /* height: calc( 100vh - 30px); */
-   /* calculate the height. Header is 30px */
    /* border:1px solid red */
 }
 
 .content {
-    width: 100%;
-    /* border:1px solid red; */
+    width: 50%;
     display: flex;
-    flex-flow: row wrap;
-    position: relative;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex: 1 auto;
+    justify-content: space-evenly;
 }
 
+
+.content > ItemCard {
+    text-align: center;
+}
 
 .sideBar {
-    width: 25%;
-    text-align: left;
+    min-width: 200px;
+    flex:1;
+    margin-top: 15px;
+    margin-right: 15px;
 }
-
 

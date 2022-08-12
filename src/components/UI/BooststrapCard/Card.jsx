@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography';
 export const ItemCard = ({ title, poster, kind }) => {
     return (
         <Card style={{
-                width: '7rem',
+                width: '130px',
                 marginTop: '15px', 
                 marginBottom:'20px',
-                marginRight: '33px',
+                marginRight: '55px',
                 marginLeft: '25px',
                 // padding:'25px',
                 border: 'hidden',
