@@ -43,6 +43,7 @@ export const AccountButton = () => {
                 PaperProps={{
                     elevation: 0,
                     sx: {
+                        bgcolor:'#3e4143',
                         overflow: 'visible',
                         filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                         mt: 1.5,
@@ -61,7 +62,7 @@ export const AccountButton = () => {
                             right: 14,
                             width: 10,
                             height: 10,
-                            bgcolor: '#f97a44',
+                            bgcolor: '#fff',
                             transform: 'translateY(-50%) rotate(45deg)',
                             zIndex: 0,
                         },

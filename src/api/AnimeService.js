@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = 'https://anidb-api.herokuapp.com/api/v1/animes/'
+const URL = 'https://anidb-api.herokuapp.com/api/v1/animes'
 
 export default class AnimeSerivce {
 
@@ -23,4 +23,9 @@ export default class AnimeSerivce {
         return response
     }
 
+
+    static async getByID(id) {
+        const response = await axios.get(`${URL}/${id}`)
+        return response
+    }
 }

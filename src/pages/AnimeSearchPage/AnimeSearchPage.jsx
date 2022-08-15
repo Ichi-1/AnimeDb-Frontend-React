@@ -7,10 +7,11 @@ import {
     InstantSearch,
     SearchBox,
     RefinementList,
+    SortBy,
 } from 'react-instantsearch-hooks-web';
 
 import { InfiniteHits } from '../../components/UI/Hits/InfiniteHits';
-import { FilterHeader } from 'components/UI/Filters/FilterHeader';
+import { Panel } from 'components/UI/Panel/Panel';
 
 
 export const AnimeSearchPage = (props) => {
@@ -40,10 +41,10 @@ export const AnimeSearchPage = (props) => {
 
                         <div className={styles.filterContainer}>
 
-                            <FilterHeader title={'Show Type'} />
+                            <Panel title={'Show Type'} />
                             <RefinementList attribute='kind' />
 
-                            <FilterHeader title={'Studio'} />
+                            <Panel title={'Studio'} />
                             <RefinementList attribute='studio' />
 
 

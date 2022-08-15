@@ -4,6 +4,8 @@ import { ItemCard } from 'components/UI/Hits/ItemCard';
 import { MoonLoader } from 'react-spinners';
 import styled from 'styled-components';
 
+import StyledLink from '../Link/StyledLink';
+
 const LoadingWrapper = styled.div`
     width: 48vmax;
     display: flex;
@@ -18,7 +20,7 @@ export function InfiniteHits(props) {
 
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 800)
+        setTimeout(() => setLoading(false), 1100)
 
     }, [results.page]);
 
@@ -46,7 +48,9 @@ export function InfiniteHits(props) {
                 ? <ul className="ais-InfiniteHits-list">
 
                     {hits.map((hit) => (
-                        <ItemCard kind={hit.kind} title={hit.title} poster_image={hit.poster_image} />
+                        <StyledLink key={hit.objectID} to={`/anime/${hit.objectID}`}>
+                            <ItemCard kind={hit.kind} title={hit.title} poster_image={hit.poster_image} />
+                        </StyledLink>
                     ))}
                 </ul>
                 : <LoadingWrapper>

@@ -1,41 +1,21 @@
-import * as React from 'react';
-import List from '@mui/material/List';
-import ListSubheader from '@mui/material/ListSubheader';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
 
+import { BasicMenu } from '../../MenuBasic';
+import { MenuOptionButton } from 'components/Buttons/MenuOptionButton';
+
 export const InfoOptions = () => {
-  return (
-    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Info
-        </ListSubheader>
-      }
-    >
-      <ListItemButton>
-        <ListItemIcon>
-          <InfoOutlinedIcon />
-        </ListItemIcon>
-        <ListItemText primary="About Us" />
-      </ListItemButton>
+    return (
+        <BasicMenu title={'Info'}>
 
+            <MenuOptionButton title='About Us'>
+                <InfoOutlinedIcon />
+            </MenuOptionButton>
 
-      <ListItemButton>
-        <ListItemIcon>
-          <NewReleasesOutlinedIcon />
-        </ListItemIcon>
-        <ListItemText primary="Moderation" />
-      </ListItemButton>
+            <MenuOptionButton title="Moderation">
+                <NewReleasesOutlinedIcon />
+            </MenuOptionButton>
 
-      
-    </List>
-  );
+        </BasicMenu>
+    );
 }

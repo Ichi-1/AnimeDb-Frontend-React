@@ -6,9 +6,10 @@ import { useClickOutside } from "react-click-outside-hook";
 import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
 import { useFetch } from "hooks/useFetch";
-import { AnimeScreen } from "components/Anime/SearchBarItem";
+import { AnimeScreen } from "components/SearchBar/SearchBarItem";
 import AnimeSerivce from "api/AnimeService";
 
+import StyledLink from "components/UI/Link/StyledLink";
 
 const SearchBarContainer = styled(motion.div)` 
     margin: auto;
@@ -134,14 +135,15 @@ export const SearchBar = (props) => {
 
     const changeHandler = (e) => {
         e.preventDefault();
-        if (e.target.value.trim() === "") setNoQueryResult(false);
+        if (e.target.value.trim() === "") 
+        setNoQueryResult(false);
         setQuery(e.target.value);
     };
-    
+
     const expandContainer = () => {
         setExpanded(true);
     };
-    
+
     const collapseContainer = () => {
         setExpanded(false);
         setQuery("");
@@ -150,15 +152,15 @@ export const SearchBar = (props) => {
         setQueryResult([]);
         if (inputRef.current) inputRef.current.value = "";
     };
-    
+
     useEffect(() => {
         if (isClickedOutside) collapseContainer();
     }, [isClickedOutside]);
-    
-    
+
+
     const [fetchShow, isLoading, error] = useFetch(async () => {
         if (!query || query.trim() === "") return;
-        
+
         const response = await AnimeSerivce.getByQuery(query)
         const shows = response.data.result
 
@@ -166,7 +168,6 @@ export const SearchBar = (props) => {
             setNoQueryResult(true)
         }
         setQueryResult(shows)
-
     })
 
 
@@ -175,6 +176,7 @@ export const SearchBar = (props) => {
 
     return (
         <SearchBarContainer
+            id='expandedContainer'
             animate={isExpanded ? "expanded" : "collapsed"}
             variants={containerVariants}
             transition={containerTransition}
@@ -227,14 +229,18 @@ export const SearchBar = (props) => {
                     )}
                     {!isLoading && !isEmpty && (
                         <>
-                            {queryResult.map((show, index) => {
-                                return <AnimeScreen
-                                    key={show.id}
-                                    imageSrc={show.poster_image}
-                                    title={show.title}
-                                    rating={show.average_rating}
+                            {queryResult.map(show => {
+                                    return <AnimeScreen
+                                        id={show.id}
+                                        key={show.id}
+                                        imageSrc={show.poster_image}
+                                        title={show.title}
+                                        rating={show.average_rating}
+                                        tags={show.tags}
+                                        kind={show.kind}
+                                        year={show.year}
 
-                                />
+                                    />
                             })}
                         </>
                     )}

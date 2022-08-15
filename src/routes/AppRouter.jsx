@@ -11,7 +11,7 @@ import { AuthorizationPage } from 'pages/AuthorizationPage';
 import { RegistrationPage } from 'pages/RegistrationPage';
 import { PasswordResetPage } from 'pages/PasswordResetPage';
 import { AnimeSearchPage } from 'pages/AnimeSearchPage/AnimeSearchPage'
-
+import { SingleContentPage } from 'pages/SingleContentPage/SingleContentPage'
 
 export const AppRouter = () => {
     return (
@@ -21,6 +21,8 @@ export const AppRouter = () => {
                     <Route index element={<HomePage />} />
                     <Route path="*" element={<NotFound404 />} />
                     <Route path="/anime" element={<AnimeSearchPage />} />
+                    
+                    <Route path="/anime/:id" element={<SingleContentPage />} />
 
                     <Route element={<UserOnlyRoutes />}>
                         <Route path="/account" element={<AccountPage />} />

@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './Filters.module.css'
+import styles from './Panel.module.css'
 
-export const FilterHeader = ({title}) => {
+export const Panel = ({title}) => {
   return (
     <div className={styles.filterHeader}>{title}</div>
   )
