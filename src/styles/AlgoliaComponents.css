@@ -1,0 +1,67 @@
+.ais-Hits {
+    min-width: 40em;
+}
+
+
+.ais-Hits-list {
+    width: 48vmax;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.ais-InfiniteHits-list {
+    width: 48vmax;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    
+    /* border:2px solid red; */
+}
+
+.ais-InfiniteHits-item {
+    box-shadow: none;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    padding-inline-start: unset;
+    margin: 0;
+    padding: 0;
+}
+
+
+.ais-Hits-item {
+    box-shadow: none;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    padding-inline-start: unset;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.ais-SearchBox-form:before {
+    background: transparent url(assets/images/search.svg) repeat scroll 0 0;
+    content: "";
+    height: 1rem;
+    left: 1rem;
+    margin-top: -0.5rem;
+    position: absolute;
+    top: 50%;
+    width: 1rem;
+}
+
+
+.ais-Pagination {
+    align-items: flex-start;
+}
+
+.ais-Pagination-list {
+    margin-top: 20px;
+    margin-left: 35px;
+}

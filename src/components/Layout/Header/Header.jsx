@@ -26,8 +26,11 @@ const darkTheme = createTheme({
 });
 
 const  Container = styled.div`
-    margin-right: 150px;
+    margin-right: 110px;
     z-index: 99;
+    /* Height is a cause of expanding over parent 
+    and cause of incorrect view in other browsers. 
+    Dunno how to fix yet */ 
     height:78px;
     width:100%;
     line-height:100%;
@@ -77,6 +80,7 @@ export const Header = () => {
                     position="static" 
                     color="primary" 
                     style={{
+                        height:"100%",
                         display:'flex',
                         background: '#292b2d', 
                         paddingTop:"7px", 

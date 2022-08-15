@@ -7,6 +7,7 @@ export default AuthContext
 
 export const AuthProvider = ({ children }) => {
 
+    const [loading, setLoadgin] = useState(true)
     const tokensInStorage = localStorage.getItem('JWT')
     const [authTokens, setAuthTokens] = useState(() =>
         tokensInStorage ? JSON.parse(tokensInStorage) : null
@@ -14,7 +15,6 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() =>
         tokensInStorage ? jwt_decode(tokensInStorage) : null
     )
-    const [loading, setLoadgin] = useState(true)
 
 
     const handleGoogleResponse = async (response) => {
@@ -25,9 +25,7 @@ export const AuthProvider = ({ children }) => {
 
         if (backend_response.status === 201) {
             setAuthTokens(data.tokens)
-
             localStorage.setItem('JWT', JSON.stringify(data.tokens))
-
             window.location.reload()
         } else {
             console.log(backend_response.status)
@@ -104,13 +102,10 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const FOUR_MINUTES = 1000 * 60 * 4
-        if (loading) {
-            updateToken()
-        }
+        if (loading) updateToken()
+        
         let interval = setInterval(() => {
-            if (authTokens) {
-                updateToken()
-            }
+            if (authTokens) updateToken()
         }, FOUR_MINUTES)
 
         return () => clearInterval(interval)

@@ -1,0 +1,8 @@
+{
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+    "editor.guides.bracketPairs": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
+}

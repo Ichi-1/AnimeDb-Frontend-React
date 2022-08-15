@@ -1,7 +1,9 @@
 import Card from 'react-bootstrap/Card';
 import Typography from '@mui/material/Typography';
 
-export const ItemCard = ({ title, poster, kind }) => {
+
+export const ItemCard = ({ title, kind, poster_image }) => {
+
     return (
         <Card style={{
                 width: '130px',
@@ -21,7 +23,7 @@ export const ItemCard = ({ title, poster, kind }) => {
                     height:'250px', 
                 }}
                 variant="top"
-                src={poster}
+                src={poster_image}
             />
             <Card.Body style={{
                 maxHeight:'50px',
@@ -30,9 +32,19 @@ export const ItemCard = ({ title, poster, kind }) => {
                 whiteSpace:'nowrap',
             }}>
                 <Typography component="caption">
-                <p style={{fontSize:'15px'}}>{title}<br/>{kind}</p>
+                <p style={{fontSize:'15px'}}>
+                    {title.length < 'Fullmetal Alchemist'.length 
+                        ? title 
+                        : title.slice(0, 'Fullmetal Alchemist'.length) + '...' 
+                    }
+                    <br/>{kind}
+                </p>
                 </Typography>
             </Card.Body>
         </Card>
+    
+
+    
     );
 }
+

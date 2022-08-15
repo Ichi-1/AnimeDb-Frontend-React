@@ -5,11 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useClickOutside } from "react-click-outside-hook";
 import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
+import { useFetch } from "hooks/useFetch";
 import { AnimeScreen } from "components/Anime/SearchBarItem";
 import AnimeSerivce from "api/AnimeService";
 
 
-const SearchBarContainer = styled(motion.div)`
+const SearchBarContainer = styled(motion.div)` 
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -126,9 +127,9 @@ export const SearchBar = (props) => {
     const inputRef = useRef();
     // Searching hooks
     const [query, setQuery] = useState("");
-    const [isLoading, setLoading] = useState(false);
     const [queryResult, setQueryResult] = useState([]);
     const [noQueryResult, setNoQueryResult] = useState(false);
+    // const [isLoading, setLoading] = useState(false);
     const isEmpty = !query || queryResult.length === 0;
 
     const changeHandler = (e) => {
@@ -136,41 +137,41 @@ export const SearchBar = (props) => {
         if (e.target.value.trim() === "") setNoQueryResult(false);
         setQuery(e.target.value);
     };
-
+    
     const expandContainer = () => {
         setExpanded(true);
     };
-
+    
     const collapseContainer = () => {
         setExpanded(false);
         setQuery("");
-        setLoading(false);
+        // setLoading(false);
         setNoQueryResult(false);
         setQueryResult([]);
         if (inputRef.current) inputRef.current.value = "";
     };
-
+    
     useEffect(() => {
         if (isClickedOutside) collapseContainer();
     }, [isClickedOutside]);
-
-
-    const searchContent = async () => {
+    
+    
+    const [fetchShow, isLoading, error] = useFetch(async () => {
         if (!query || query.trim() === "") return;
-        setLoading(true);
-        setNoQueryResult(false);
-
-        const response = await AnimeSerivce.getByQuery(query)
         
-        if (response.data.result.length === 0) {
-            setNoQueryResult(true);
+        const response = await AnimeSerivce.getByQuery(query)
+        const shows = response.data.result
+
+        if (shows.length === 0) {
+            setNoQueryResult(true)
         }
+        setQueryResult(shows)
 
-        setQueryResult(response.data.result);
-        setLoading(false);
-    };
+    })
 
-    useDebounce(query, 500, searchContent);
+
+
+    useDebounce(query, 500, fetchShow);
 
     return (
         <SearchBarContainer
