@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInfiniteHits } from 'react-instantsearch-hooks-web';
 import { ItemCard } from 'components/UI/Hits/ItemCard';
-import { MoonLoader } from 'react-spinners';
+import { BeatLoader } from 'react-spinners';
 import styled from 'styled-components';
 
 import StyledLink from '../Link/StyledLink';
 
 const LoadingWrapper = styled.div`
-    width: 48vmax;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    min-width: 1060px;
+    align-items: center;
+    
 `;
 
 export function InfiniteHits(props) {
@@ -20,7 +19,7 @@ export function InfiniteHits(props) {
 
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 1100)
+        setTimeout(() => setLoading(false), 500)
 
     }, [results.page]);
 
@@ -54,7 +53,7 @@ export function InfiniteHits(props) {
                     ))}
                 </ul>
                 : <LoadingWrapper>
-                    <MoonLoader loading size={40} />
+                    <BeatLoader loading size={20} speedMultiplier={1}/>
                 </LoadingWrapper>
             }
             <div ref={sentinelRef} aria-hidden="true" />

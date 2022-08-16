@@ -1,14 +1,10 @@
-import React from "react";
 import styled from "styled-components";
 import StyledLink from "components/UI/Link/StyledLink";
-import Typography from '@mui/material/Typography';
-
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const AnimeScreenContainer = styled.div`
 
     width: 100%;
-    min-height: 8em;
     display: flex;
     border-bottom: 2px solid #d8d8d852;
     padding: 6px 8px;
@@ -77,11 +73,6 @@ const Tags = styled.div`
 `
 
 
-// const clearFields = () => {
-
-//     document.getElementById("expandedContainer"). = "collapsed";
-//     console.log('click')
-// }
 
 
 export function AnimeScreen({ imageSrc, title, rating, id, tags, kind, year }) {

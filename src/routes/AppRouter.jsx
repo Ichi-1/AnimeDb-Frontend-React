@@ -10,7 +10,7 @@ import { AccountPage } from 'pages/Account/AccountPage.jsx'
 import { AuthorizationPage } from 'pages/AuthorizationPage';
 import { RegistrationPage } from 'pages/RegistrationPage';
 import { PasswordResetPage } from 'pages/PasswordResetPage';
-import { AnimeSearchPage } from 'pages/AnimeSearchPage/AnimeSearchPage'
+import { AnimeSearchPage } from 'pages/SearchPage/SearchPage'
 import { SingleContentPage } from 'pages/SingleContentPage/SingleContentPage'
 
 export const AppRouter = () => {

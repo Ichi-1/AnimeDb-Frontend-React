@@ -7,15 +7,15 @@
 }
 
 .container {
-    position: relative;
     min-height: 1200px;
-    min-width: 1200px;
+    max-width: 1350px;
     display: flex;
     justify-content: center;
     width:60%;
     margin:0 auto;
     background-color: #ffff;
     border: 1px solid #ffff;
+    font-family: 'Roboto', sans-serif;
     
 }
 

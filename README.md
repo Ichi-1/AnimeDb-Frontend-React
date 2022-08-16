@@ -3,17 +3,15 @@
 - Auth
 
 	~~-  Social providers auth logic (also need to set up on backend)~~
-
-	-  Forms: Error handling on 4xx status code
+    -  Forms: Error handling on 4xx status code
 
 
 - Searching
 
-	-  ~~Search Bar~~
-
-   -  ~~Searching page with filters~~
-   -  Filters Logic
-   -  Single Item Page
+    -  ~~Search Bar~~
+    -  ~~Searching page with filters~~
+    -  ~~Filters Logic~~
+    -  Single Item Page
 
  
 - Home Page

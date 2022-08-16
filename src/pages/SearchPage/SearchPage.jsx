@@ -1,6 +1,6 @@
 import 'styles/AlgoliaComponents.css'
 import React from 'react'
-import styles from './AnimeSearchPage.module.css'
+import styles from './SearchPage.module.css'
 import Typography from '@mui/material/Typography';
 import algoliasearch from 'algoliasearch';
 import {
@@ -33,7 +33,7 @@ export const AnimeSearchPage = (props) => {
                 </div>
                 <div className={styles.body}>
                     <div className={styles.content}>
-                            <InfiniteHits />
+                        <InfiniteHits />
                     </div>
 
                     <div className={styles.sidebar}>

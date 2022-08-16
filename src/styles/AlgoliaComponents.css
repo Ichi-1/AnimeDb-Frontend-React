@@ -1,18 +1,18 @@
-.ais-Hits {
+/* .ais-Hits {
     min-width: 40em;
-}
+} */
 
 
-.ais-Hits-list {
-    width: 48vmax;
+/* .ais-Hits-list {
+    width: 42vmax;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-}
+} */
 
 .ais-InfiniteHits-list {
-    width: 48vmax;
+    min-width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
