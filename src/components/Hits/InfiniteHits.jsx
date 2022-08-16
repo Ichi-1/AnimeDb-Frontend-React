@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInfiniteHits } from 'react-instantsearch-hooks-web';
-import { ItemCard } from 'components/UI/Hits/ItemCard';
+import { ItemCard } from 'components/Hits/ItemCard';
 import { BeatLoader } from 'react-spinners';
 import styled from 'styled-components';
 
-import StyledLink from '../Link/StyledLink';
+import StyledLink from '../UI/Link/StyledLink';
 
 const LoadingWrapper = styled.div`
-    min-width: 1060px;
+    min-width: 42vw;
     align-items: center;
     
 `;
@@ -19,8 +19,7 @@ export function InfiniteHits(props) {
 
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 500)
-
+        setTimeout(() => setLoading(false), 2000)
     }, [results.page]);
 
     useEffect(() => {

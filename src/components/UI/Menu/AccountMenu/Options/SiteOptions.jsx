@@ -14,7 +14,7 @@ export const SiteOptions = () => {
     return (
         <BasicMenu title='Site'>
 
-            <MenuOptionButton title='FAQ'>
+            <MenuOptionButton disabled='True' title='FAQ'>
                     <HelpOutlineRoundedIcon />
             </MenuOptionButton>
 

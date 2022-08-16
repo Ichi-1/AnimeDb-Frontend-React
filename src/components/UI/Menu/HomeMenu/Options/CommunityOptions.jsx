@@ -9,15 +9,15 @@ export const CommunityOptions = () => {
     return (
         <BasicMenu title={'Community'}>
 
-            <MenuOptionButton title={'Forum'}>
+            <MenuOptionButton disabled='True' title={'Forum'}>
                 <ForumOutlinedIcon />
             </MenuOptionButton>
 
-            <MenuOptionButton title={'Reviews'}>
+            <MenuOptionButton disabled='True' title={'Reviews'}>
                 <HistoryEduOutlinedIcon />
             </MenuOptionButton>
 
-            <MenuOptionButton title={'Users'}>
+            <MenuOptionButton disabled='True' title={'Users'}>
                 <PeopleOutlineIcon />
             </MenuOptionButton>
             

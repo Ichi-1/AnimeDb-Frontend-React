@@ -8,11 +8,11 @@ export const InfoOptions = () => {
     return (
         <BasicMenu title={'Info'}>
 
-            <MenuOptionButton title='About Us'>
+            <MenuOptionButton disabled='True' title='About Us'>
                 <InfoOutlinedIcon />
             </MenuOptionButton>
 
-            <MenuOptionButton title="Moderation">
+            <MenuOptionButton disabled='True' title="Moderation">
                 <NewReleasesOutlinedIcon />
             </MenuOptionButton>
 

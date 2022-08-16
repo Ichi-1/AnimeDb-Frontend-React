@@ -10,7 +10,7 @@ import {
     SortBy,
 } from 'react-instantsearch-hooks-web';
 
-import { InfiniteHits } from '../../components/UI/Hits/InfiniteHits';
+import { InfiniteHits } from '../../components/Hits/InfiniteHits';
 import { Panel } from 'components/UI/Panel/Panel';
 
 

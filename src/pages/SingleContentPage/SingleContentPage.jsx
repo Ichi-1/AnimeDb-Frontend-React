@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import { Panel } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
 import { BeatLoader } from 'react-spinners'
+import { ContentButtons } from 'components/Buttons/ContentButtons/ContentButtons'
+
 
 const Header = styled.div`
     margin-top: 10px;
@@ -66,6 +68,11 @@ const InfoValue = styled.div`
     word-wrap: break-word;
 `;
 
+const RatingContainer = styled.div`
+    width: 30%;
+    text-align: left;
+`;
+
 const Rating = styled.span`
     float: right;
     color: #a1a1a1;
@@ -74,7 +81,6 @@ const Rating = styled.span`
 `;
 
 const DescriptionContainer = styled.div`
-    right: 0;
     width: 700px;
 `;
 
@@ -90,6 +96,11 @@ const LoadingWrapper = styled.div`
     align-items: center;
     justify-content: center;
 `;
+
+const RecommendationContainer = styled.div`
+    width: 700px;
+`;
+
 
 export const SingleContentPage = () => {
     const { id } = useParams()
@@ -138,7 +149,7 @@ export const SingleContentPage = () => {
                     <Content>
                         <PosterContainer>
                             <img src={content.poster_image}></img>
-                            <Panel title='Interactive Buttons' />
+                            <ContentButtons />
                         </PosterContainer>
 
                         <InfoContainer>
@@ -156,11 +167,11 @@ export const SingleContentPage = () => {
                             </InfoValueContainer>
                         </InfoContainer>
 
-                        <InfoContainer>
+                        <RatingContainer>
                             <Panel title='Rating' />
                             <RatingStars value={ratingStar}   />
                             <Rating>{content.average_rating}</Rating>
-                        </InfoContainer>
+                        </RatingContainer>
                     
                         
                         <DescriptionContainer>
@@ -168,6 +179,9 @@ export const SingleContentPage = () => {
                             <DescriptionValue>{description}</DescriptionValue>
                         </DescriptionContainer>
 
+                        <RecommendationContainer>
+                            <Panel title='Recommendation' />
+                        </RecommendationContainer>
                     </Content>
                     <SideBar>
                         <Panel title='Favourites' />

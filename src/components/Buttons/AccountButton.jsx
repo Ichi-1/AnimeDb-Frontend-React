@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext} from 'react';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
@@ -6,8 +6,10 @@ import Tooltip from '@mui/material/Tooltip';
 import { AccountOptions } from 'components/UI/Menu/AccountMenu/Options/AccountOptions'
 import { SiteOptions } from 'components/UI/Menu/AccountMenu/Options/SiteOptions'
 import { MyAvatar } from 'components/UI/Avatar/Avatar';
+import AuthContext from 'components/Auth/context/AuthContext';
 
 export const AccountButton = () => {
+    const { user } = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -19,7 +21,7 @@ export const AccountButton = () => {
     return (
         <React.Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Tooltip title="Account">
+                <Tooltip title={user.nickname}>
                     <IconButton
                         // disableRipple for disable on-click effect
                         disableRipple

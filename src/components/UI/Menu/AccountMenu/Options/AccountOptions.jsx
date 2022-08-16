@@ -11,16 +11,16 @@ export const AccountOptions = () => {
     return (
         <BasicMenu title='Account'>
 
-            <MenuOptionButton title='My Anime List'>
+            <MenuOptionButton disabled='True' title='My Anime List'>
                 <PlaylistAddCheckOutlinedIcon />
             </MenuOptionButton>
 
-            <MenuOptionButton title='Mail'>
+            <MenuOptionButton disabled='True' title='Mail'>
                 <DraftsIcon />
             </MenuOptionButton>
 
-            <StyledLink style={{ color: 'white' }} to='/account'>
-                <MenuOptionButton title='Settings'>
+            <StyledLink  style={{ color: 'white' }} to='/account'>
+                <MenuOptionButton  title='Settings'>
                     <SettingsOutlinedIcon />
                 </MenuOptionButton>
             </StyledLink>

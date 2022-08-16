@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 // import StyledLink from 'components/UI/Link/StyledLink';
 
 
-export const MenuOptionButton = ({title, children, callback}) => {
+export const MenuOptionButton = ({title, children, callback, disabled}) => {
   return (
     <Box sx={[
         {
@@ -18,7 +18,7 @@ export const MenuOptionButton = ({title, children, callback}) => {
             }
         }
       ]}>
-      <ListItemButton >
+      <ListItemButton disabled={disabled} >
         <ListItemIcon >
           {children}
         </ListItemIcon>
