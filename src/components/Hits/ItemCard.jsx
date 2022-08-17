@@ -1,8 +1,43 @@
 import Card from 'react-bootstrap/Card';
 import Typography from '@mui/material/Typography';
+import StyledLink from 'components/UI/Link/StyledLink';
+import styled from 'styled-components'
 
 
-export const ItemCard = ({ title, kind, poster_image }) => {
+const Title = styled.div`
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+
+    cursor: pointer;
+
+    color: #176093;
+
+    &:hover {
+        color:rgb(248, 89, 21);
+    }
+`;
+
+const CaptionContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+const ShowType = styled.span`
+    color: #585757;
+    font-size: 14px;
+`;
+
+const Year = styled.span`
+    color: #585757;
+    font-size: 14px;
+`;
+
+
+export const ItemCard = ({ title, kind, poster_image, year}) => {
 
     return (
         <Card style={{
@@ -30,16 +65,22 @@ export const ItemCard = ({ title, kind, poster_image }) => {
                 margin:0,
                 padding:0,
                 whiteSpace:'nowrap',
-            }}>
-                <Typography component="caption">
-                <p style={{fontSize:'15px'}}>
+                width: '170px',
+            }}>     
+            
+            
+                    <Title>
                     {title.length < 'Fullmetal Alchemist'.length 
                         ? title 
                         : title.slice(0, 'Fullmetal Alchemist'.length) + '...' 
                     }
-                    <br/>{kind}
-                </p>
-                </Typography>
+                    </Title>
+                    
+                    <CaptionContainer>
+                        <ShowType>{kind}</ShowType>
+                        <Year>{year}</Year>
+                    </CaptionContainer>
+
             </Card.Body>
         </Card>
     

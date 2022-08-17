@@ -3,13 +3,12 @@ import styled from "styled-components";
 import { IoClose, IoSearch } from "react-icons/io5";
 import { AnimatePresence, motion } from "framer-motion";
 import { useClickOutside } from "react-click-outside-hook";
-import MoonLoader from "react-spinners/MoonLoader";
 import { useDebounce } from "hooks/useDebounce";
 import { useFetch } from "hooks/useFetch";
 import { AnimeScreen } from "components/SearchBar/SearchBarItem";
 import AnimeSerivce from "api/AnimeService";
+import { BeatLoader } from "react-spinners";
 
-import StyledLink from "components/UI/Link/StyledLink";
 
 const SearchBarContainer = styled(motion.div)` 
     margin: auto;
@@ -214,7 +213,7 @@ export const SearchBar = (props) => {
                 <SearchContent>
                     {isLoading && (
                         <LoadingWrapper>
-                            <MoonLoader loading color="#000" size={20} />
+                            <BeatLoader loading color="#000" size={10} />
                         </LoadingWrapper>
                     )}
                     {!isLoading && isEmpty && !noQueryResult && (

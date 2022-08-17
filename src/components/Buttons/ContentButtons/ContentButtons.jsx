@@ -13,7 +13,7 @@ export const ContentButtons = () => {
         <div>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Tooltip title="Leave a Comment">
-                    <IconButton size="large">
+                    <IconButton disableRipple size="large">
                         <ForumOutlinedIcon htmlColor='#000' sx={{
                             "&:hover, &.Mui-focusVisible": { color: "rgb(248, 89, 21)" }
                         }} />
@@ -21,7 +21,7 @@ export const ContentButtons = () => {
                 </Tooltip>
 
                 <Tooltip title="Write a Review">
-                    <IconButton size="large">
+                    <IconButton disableRipple size="large">
                         <HistoryEduOutlinedIcon htmlColor='#000' sx={{
                             "&:hover, &.Mui-focusVisible": { color: "rgb(248, 89, 21)" }
                         }} />
@@ -30,7 +30,7 @@ export const ContentButtons = () => {
 
 
                 <Tooltip title="Add to Favourite">
-                    <IconButton size="large">
+                    <IconButton disableRipple size="large">
                         <StarRateIcon htmlColor='#000' sx={{
                             "&:hover, &.Mui-focusVisible": { color: "rgb(248, 89, 21)" }
                         }} />
@@ -39,7 +39,7 @@ export const ContentButtons = () => {
 
 
                 <Tooltip title="Eddit an Info">
-                    <IconButton size="large">
+                    <IconButton disableRipple size="large">
                         <SettingsSuggestIcon htmlColor='#000' sx={{
                             "&:hover, &.Mui-focusVisible": { color: "rgb(248, 89, 21)" }
                         }} />

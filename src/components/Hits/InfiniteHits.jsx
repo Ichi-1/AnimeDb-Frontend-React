@@ -7,9 +7,8 @@ import styled from 'styled-components';
 import StyledLink from '../UI/Link/StyledLink';
 
 const LoadingWrapper = styled.div`
-    min-width: 42vw;
+    min-width: 46em;
     align-items: center;
-    
 `;
 
 export function InfiniteHits(props) {
@@ -47,7 +46,12 @@ export function InfiniteHits(props) {
 
                     {hits.map((hit) => (
                         <StyledLink key={hit.objectID} to={`/anime/${hit.objectID}`}>
-                            <ItemCard kind={hit.kind} title={hit.title} poster_image={hit.poster_image} />
+                            <ItemCard 
+                                kind={hit.kind} 
+                                title={hit.title} 
+                                poster_image={hit.poster_image}
+                                year={hit.year}
+                            />
                         </StyledLink>
                     ))}
                 </ul>

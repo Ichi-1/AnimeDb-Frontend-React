@@ -8,10 +8,10 @@
 
 .container {
     min-height: 1220px;
-    max-width: 1350px;
+    max-width: 1250px;
     display: flex;
     justify-content: center;
-    width:60%;
+    width:1200px;
     margin:0 auto;
     background-color: #ffff;
     border: 1px solid #ffff;

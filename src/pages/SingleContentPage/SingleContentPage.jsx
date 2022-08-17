@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import AnimeSerivce from 'api/AnimeService'
 import { useFetch } from 'hooks/useFetch'
 import styled from 'styled-components'
-import { Panel } from 'components/UI/Panel/Panel'
+import { Panel, PanelWithLink } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
 import { BeatLoader } from 'react-spinners'
 import { ContentButtons } from 'components/Buttons/ContentButtons/ContentButtons'
@@ -23,7 +23,7 @@ const Body = styled.div`
     flex-wrap: wrap;
     min-height: 80%;
     margin-top: 15px;
-
+    /* min-width: 1000px; */
 
     /* border: 2px solid red; */
 `;
@@ -31,15 +31,6 @@ const Body = styled.div`
 const SideBar = styled.div`
     width: 19%;
 
-`;
-
-const Content = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 30px;
-    width: 81%;
-    height:100%;
 `;
 
 const PosterContainer = styled.div`
@@ -51,25 +42,54 @@ const PosterContainer = styled.div`
     }
 
 `;
-
-const InfoContainer = styled.div`
-    width: 30%;
+const Content = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+    width: 81%;
+    height:100%;
 `;
+
+const MainContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    width:65%;
+    margin-left: 30px;
+`
+
+
 
 const InfoValueContainer = styled.div`
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: left;
-`;
+    `;
 
 const InfoValue = styled.div`
     hyphens: auto;
     word-wrap: break-word;
+    font-size: 16px;
+    margin: 3px;
+    `;
+
+
+const LeftContainer = styled.div`
+    width: 45%;
+`;
+
+const RightContainerColumn = styled.div`
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
 `;
 
 const RatingContainer = styled.div`
-    width: 30%;
     text-align: left;
 `;
 
@@ -80,8 +100,12 @@ const Rating = styled.span`
 
 `;
 
+const StudioContainer = styled.div`
+    text-align: left;
+`
+
 const DescriptionContainer = styled.div`
-    width: 700px;
+    width: 100%;
 `;
 
 const DescriptionValue = styled.div`
@@ -115,7 +139,6 @@ export const SingleContentPage = () => {
         const tags = data.tags.split(',').slice(0, 6).join(',')
         let description = data.description
         const rating = parseFloat(String(parseInt(data.average_rating)/2).split('')[0]) + 0.5
-        
         
 
         if (description.length > 500) {
@@ -152,43 +175,53 @@ export const SingleContentPage = () => {
                             <ContentButtons />
                         </PosterContainer>
 
-                        <InfoContainer>
-                            <Panel title="Info" />
-                            <InfoValueContainer>
-                                <InfoValue><b>Type:</b> {content.kind}</InfoValue>
-                                <InfoValue><b>Age rating:</b> {content.age_rating}, {content.age_rating_guide}</InfoValue>
-                                <InfoValue><b>Release year:</b> {content.year}</InfoValue>
-                                <InfoValue><b>Season:</b> {content.season}</InfoValue>
-                                <InfoValue><b>End year:</b> {content.year_end}</InfoValue>
-                                <InfoValue><b>Studio:</b> {content.studio}</InfoValue>
-                                <InfoValue><b>Episodes:</b> {content.episode_count}</InfoValue>
-                                <InfoValue><b>Tags:</b> {tags}</InfoValue>
+                        <MainContainer>
+                            <LeftContainer>
+                                <Panel title="Info" />
+                                <InfoValueContainer>
+                                    <InfoValue><b>Type:</b> {content.kind}</InfoValue>
+                                    <InfoValue><b>Age rating:</b> {content.age_rating}, {content.age_rating_guide}</InfoValue>
+                                    <InfoValue><b>Release year:</b> {content.year}</InfoValue>
+                                    <InfoValue><b>Season:</b> {content.season}</InfoValue>
+                                    <InfoValue><b>End year:</b> {content.year_end}</InfoValue>
+                                    <InfoValue><b>Episodes:</b> {content.episode_count}</InfoValue>
+                                    <InfoValue><b>Tags:</b> {tags}</InfoValue>
+                                </InfoValueContainer>
+                            </LeftContainer>
 
-                            </InfoValueContainer>
-                        </InfoContainer>
+                            <RightContainerColumn>
+                                <RatingContainer>
+                                    <Panel title='Rating' />
+                                    <RatingStars value={ratingStar}   />
+                                    <Rating>{content.average_rating}</Rating>
+                                </RatingContainer>
 
-                        <RatingContainer>
-                            <Panel title='Rating' />
-                            <RatingStars value={ratingStar}   />
-                            <Rating>{content.average_rating}</Rating>
-                        </RatingContainer>
-                    
-                        
-                        <DescriptionContainer>
-                            <Panel title='Description' />
-                            <DescriptionValue>{description}</DescriptionValue>
-                        </DescriptionContainer>
+                                <StudioContainer>
+                                    <Panel title='Studio' />
+                                    {content.studio}
+                                </StudioContainer>
+                                
+                            </RightContainerColumn>
 
-                        <RecommendationContainer>
-                            <Panel title='Recommendation' />
-                        </RecommendationContainer>
+                            <DescriptionContainer>
+                                <Panel title='Description' />
+                                <DescriptionValue>{description}</DescriptionValue>
+                            </DescriptionContainer>
+
+                            <RecommendationContainer>
+                                <PanelWithLink title='Recommendation' />
+                            </RecommendationContainer>
+                        </MainContainer>
                     </Content>
+                    
+
                     <SideBar>
                         <Panel title='Favourites' />
                         <Panel title='Community score' />
                         <Panel title='collections' />
                         <Panel title='sources' />
                     </SideBar>
+
                 </Body>
             </div>
             : <LoadingWrapper>

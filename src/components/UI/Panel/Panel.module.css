@@ -1,13 +1,4 @@
-.filterCheckBoxes {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin-bottom: 20px;
-
-}
-
-
-.filterHeader {
+.Panel {
     margin-top: 15px;
     margin-bottom: 10px;
     text-align: center;
@@ -22,4 +13,13 @@
         rgb(220, 215, 215, 0.969) 2%, 
         rgba(220, 215, 215, 0.969) 78%
     );
+}
+
+.PanelWithLink {
+    cursor: pointer;
+    color: #176093
+}
+
+.PanelWithLink:hover {
+    color:rgb(248, 89, 21);
 }
