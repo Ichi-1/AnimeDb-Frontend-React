@@ -11,7 +11,7 @@ import { HomeButton } from 'components/Buttons/HomeButton'
 import { ForumButton } from 'components/Buttons/ForumButton';
 import { Notification } from 'components/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 import { LoginButton } from 'components/Buttons/LoginButton';
 
 import styled from 'styled-components'

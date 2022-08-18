@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 
 
 export const MyAvatar = () => {

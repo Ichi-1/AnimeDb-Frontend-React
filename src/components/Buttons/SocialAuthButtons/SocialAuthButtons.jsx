@@ -1,6 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import { GoogleButton } from './GoogleButton';
+import { Google } from './Google';
+import { GitHub } from './GitHub';
+
 
 export const SocialAuthButtons = () => {
   return (
@@ -9,13 +11,13 @@ export const SocialAuthButtons = () => {
         marginLeft:1,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'left',
+        alignItems: 'center',
         textAlign:'left'
     }}>
         Social Authenctication
         <div style={{marginTop:"15px"}}>
-            <GoogleButton />
-            
+            <Google />
+            <GitHub />
         </div>
         
     </Box>

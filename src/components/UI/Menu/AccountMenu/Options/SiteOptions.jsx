@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 import { BasicMenu } from '../../MenuBasic';

@@ -6,7 +6,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { AccountOptions } from 'components/UI/Menu/AccountMenu/Options/AccountOptions'
 import { SiteOptions } from 'components/UI/Menu/AccountMenu/Options/SiteOptions'
 import { MyAvatar } from 'components/UI/Avatar/Avatar';
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 
 export const AccountButton = () => {
     const { user } = useContext(AuthContext)

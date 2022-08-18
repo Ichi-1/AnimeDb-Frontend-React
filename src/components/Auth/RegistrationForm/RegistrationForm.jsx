@@ -12,7 +12,7 @@ import { MyTextField } from 'components/UI/TextField/TextField';
 import { MyAlert } from 'components/Alert/Alert'
 
 import { signUpSubmit } from './handleSubmit';
-import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons';
+import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons/SocialAuthButtons';
 
 const theme = createTheme();
 

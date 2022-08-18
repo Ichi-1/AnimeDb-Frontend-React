@@ -1,5 +1,5 @@
 import { useContext} from 'react';
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 import { Navigate, Outlet } from 'react-router-dom'
 
 export const UserOnlyRoutes = () => {

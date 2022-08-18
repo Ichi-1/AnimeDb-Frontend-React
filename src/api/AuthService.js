@@ -1,6 +1,10 @@
+const API_AUTH_URL = 'https://anidb-api.herokuapp.com/api/v1/auth'
+const API_OAUTH2_URL = 'https://anidb-api.herokuapp.com/api/v1/oauth2'
+
 export default class AuthService {
+
     static async userLogin(nickname, password) {
-        const response =  await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/create/', {
+        const response =  await fetch(`${API_AUTH_URL}/jwt/create/`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -15,7 +19,7 @@ export default class AuthService {
     }
     
     static async verifyToken(token) {
-        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/verify/', {
+        const response = await fetch(`${API_AUTH_URL}/jwt/verify/`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -29,7 +33,7 @@ export default class AuthService {
     }
 
     static async updateAccessToken(refreshToken) {
-        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/jwt/refresh/', {
+        const response = await fetch(`${API_AUTH_URL}/jwt/refresh/`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -44,7 +48,7 @@ export default class AuthService {
     }
 
     static async userRegistration(nickname, email, password) {
-        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/auth/sign-up/', {
+        const response = await fetch(`${API_AUTH_URL}/sign-up/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain',
@@ -59,8 +63,9 @@ export default class AuthService {
         return response
     }
 
+
     static async googleAuth(id_token) {
-        const response = await fetch('https://anidb-api.herokuapp.com/api/v1/oauth2/google/', {
+        const response = await fetch(`${API_OAUTH2_URL}/google/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -73,6 +78,22 @@ export default class AuthService {
         })
         return response
     }   
-       
+    
+
+    static async githubAuth(code) {
+    
+        const response = await fetch(`http://localhost:8000/api/v1/oauth2/github/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "code": code
+            })
+        })
+        
+
+        return response
+    }
 }   
 

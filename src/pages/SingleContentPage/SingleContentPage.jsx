@@ -16,7 +16,7 @@ const Header = styled.div`
     display: block;
     height: 75px;
     /* border: 2px solid red; */
-`
+`;
 
 const Body = styled.div`
     display:flex;
@@ -60,22 +60,19 @@ const MainContainer = styled.div`
     margin-left: 30px;
 `
 
-
-
 const InfoValueContainer = styled.div`
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: left;
-    `;
+`;
 
 const InfoValue = styled.div`
     hyphens: auto;
     word-wrap: break-word;
     font-size: 16px;
     margin: 3px;
-    `;
-
+`;
 
 const LeftContainer = styled.div`
     width: 45%;
@@ -105,7 +102,7 @@ const StudioContainer = styled.div`
 `
 
 const DescriptionContainer = styled.div`
-    width: 100%;
+    width: 95%;
 `;
 
 const DescriptionValue = styled.div`
@@ -122,7 +119,7 @@ const LoadingWrapper = styled.div`
 `;
 
 const RecommendationContainer = styled.div`
-    width: 700px;
+    width: 95%;
 `;
 
 
@@ -211,6 +208,7 @@ export const SingleContentPage = () => {
                             <RecommendationContainer>
                                 <PanelWithLink title='Recommendation' />
                             </RecommendationContainer>
+
                         </MainContainer>
                     </Content>
                     

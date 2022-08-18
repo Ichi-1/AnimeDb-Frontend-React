@@ -5,10 +5,15 @@ import AuthService from "api/AuthService";
 const AuthContext = createContext();
 export default AuthContext
 
+//TODO I need to totally rewrite this auth module, 
+//* because now this code send two request for each token function,
+//* Also - github oauth2 trouble, if i will verify backend token 
+//* It always will be blacklisted
+
 export const AuthProvider = ({ children }) => {
 
-    const [loading, setLoadgin] = useState(true)
     const tokensInStorage = localStorage.getItem('JWT')
+    const [loading, setLoadgin] = useState(true)
     const [authTokens, setAuthTokens] = useState(() =>
         tokensInStorage ? JSON.parse(tokensInStorage) : null
     )
@@ -16,24 +21,6 @@ export const AuthProvider = ({ children }) => {
         tokensInStorage ? jwt_decode(tokensInStorage) : null
     )
 
-
-    const handleGoogleResponse = async (response) => {
-        const id_token = await response.credential
-        console.log(id_token)
-        const backend_response = await AuthService.googleAuth(id_token)
-        const data = await backend_response.json()
-
-        if (backend_response.status === 201) {
-            setAuthTokens(data.tokens)
-            localStorage.setItem('JWT', JSON.stringify(data.tokens))
-            window.location.reload()
-        } else {
-            console.log(backend_response.status)
-        }
-
-        const profile_picture = jwt_decode(id_token).picture
-    }
-    
     const loginUser = async (event) => {
         console.log('Login User called')
         event.preventDefault();
@@ -49,7 +36,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('JWT', JSON.stringify(tokensPair))
 
         } else {
-            alert('Something wrong')
+            alert(response.status)
         }
 
     };
@@ -74,11 +61,12 @@ export const AuthProvider = ({ children }) => {
         const refreshToken = authTokens?.refresh
         const isTokenBlackListed = await verifyToken(refreshToken)
 
-        if (isTokenBlackListed) {
-            console.log('Token is BlakListed')
-            logoutUser()
-        }
-
+        // TODO Commented out right now, cause - two consecutive requests 
+        // if (isTokenBlackListed) {
+        //     console.log('Token is BlakListed')
+        //     logoutUser()
+        // }
+        
         const response = await AuthService.updateAccessToken(refreshToken)
         if (response.status === 200) {
             let tokensPair = await response.json()
@@ -86,31 +74,67 @@ export const AuthProvider = ({ children }) => {
             setUser(jwt_decode(tokensPair.access))
             localStorage.setItem('JWT', JSON.stringify(tokensPair))
         }   
-
+        
         if (loading) {
             setLoadgin(false)
         }
     }
 
+
+    const handleGoogleLogin = async (googleResponse) => {
+        const id_token = await googleResponse.credential
+        const response = await AuthService.googleAuth(id_token)
+        const data = await response.json()
+
+        if (response.status === 201) {
+            setAuthTokens(data.tokens)
+            localStorage.setItem('JWT', JSON.stringify(data.tokens))
+            window.location.reload()
+        } else {
+            alert(response.status)
+        }
+
+    }
+    
+
+    const handleGitHubLogin = async (code) => {
+        const response = await AuthService.githubAuth(code)
+        const data = await response.json()
+        
+        if (response.status !== 201) {
+            alert(`status: ${response.status}, ${JSON.stringify(data)}`)
+        }
+        
+        setAuthTokens(data.tokens)
+        localStorage.setItem('JWT', JSON.stringify(data.tokens))
+
+        alert(`status: ${response.status}`)
+        window.location.reload()
+        
+    }
+    
+    useEffect(() => {
+        const FOUR_MINUTES = 1000 * 60 * 4
+        if (loading) updateToken();
+        
+        let interval = setInterval(() => {
+            if (authTokens) updateToken()
+        }, FOUR_MINUTES);
+
+        return () => clearInterval(interval)
+
+    }, [authTokens, loading])
+    
+    
     const contextData = {
         user: user,
         loginUser: loginUser,
         logoutUser: logoutUser,
         authTokens: authTokens,
-        handleGoogleResponse: handleGoogleResponse,
+        handleGoogleLogin: handleGoogleLogin,
+        handleGitHubLogin: handleGitHubLogin,
+
     }
-
-    useEffect(() => {
-        const FOUR_MINUTES = 1000 * 60 * 4
-        if (loading) updateToken()
-        
-        let interval = setInterval(() => {
-            if (authTokens) updateToken()
-        }, FOUR_MINUTES)
-
-        return () => clearInterval(interval)
-
-    }, [authTokens, loading])
 
     return (
         <AuthContext.Provider value={contextData}>

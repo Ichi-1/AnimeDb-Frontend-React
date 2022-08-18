@@ -1,5 +1,5 @@
 .bodyBackground {
-    background-image: url(assets/images/back.jpg);
+    background: url(assets/images/type.png) repeat;
     background-color: #F4F4F4;
     padding: 0;
     margin: 0;
@@ -8,7 +8,7 @@
 
 .container {
     min-height: 1220px;
-    max-width: 1250px;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
     width:1200px;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AuthContext from 'components/Auth/context/AuthContext';
+import AuthContext from 'context/AuthContext';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
 import { MyTextField } from 'components/UI/TextField/TextField';
 
-import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons';
+import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons/SocialAuthButtons';
 
 const theme = createTheme();
 

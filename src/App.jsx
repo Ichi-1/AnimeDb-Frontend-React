@@ -1,6 +1,6 @@
 import './styles/App.css';
 import { AppRouter } from './routes/AppRouter';
-import { AuthProvider } from './components/Auth/context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 
 
 
