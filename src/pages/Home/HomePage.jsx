@@ -21,25 +21,13 @@ export const HomePage = () => {
                     alignItems: 'center',
                 }}
             >
-                
+            {user
+                ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography>
+                : <Typography component="h1" variant="h4">Hello, anonymous </Typography>
 
-                    {user
-                        ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography>
-                        : <Typography component="h1" variant="h4">Hello, anonymous </Typography>
-
-                    }
-
-
-                    <Typography variant="caption" display="block" gutterBottom>
-                        <StyledLink to='/account'>
-                            Content only for auhtenticated users
-                        </StyledLink>
-                    </Typography>
-
+            }
             </Box>
-
         </Container>
-
     )
 }
 

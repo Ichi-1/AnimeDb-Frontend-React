@@ -27,7 +27,7 @@ export const AnimeSearchPage = (props) => {
                         Anime
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
-                        This page displays anime sorted by average rating
+                        This page display anime sorted by average rating
                     </Typography>
 
                 </div>

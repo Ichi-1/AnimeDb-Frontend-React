@@ -15,14 +15,14 @@ export const GitHub = () => {
         if (hasCode){
             // Getting code from query string
             const code = new URLSearchParams(url).get('code')
-            // Then making POST request to out backend
+            // Then making POST request to our backend
             handleGitHubLogin(code)
         }   
     }, [])
 
-
     return (
         <GithubLoginButton
+            iconSize='27px'
             style={{
                 marginTop: 8,
                 marginLeft: 0,

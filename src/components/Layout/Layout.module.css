@@ -7,11 +7,11 @@
 }
 
 .container {
-    min-height: 1220px;
+    min-height: 100vh;
     max-width: 1200px;
     display: flex;
     justify-content: center;
-    width:1200px;
+    width:100%;
     margin:0 auto;
     background-color: #ffff;
     border: 1px solid #ffff;

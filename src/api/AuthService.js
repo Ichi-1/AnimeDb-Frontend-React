@@ -82,7 +82,7 @@ export default class AuthService {
 
     static async githubAuth(code) {
     
-        const response = await fetch(`http://localhost:8000/api/v1/oauth2/github/`, {
+        const response = await fetch(`${API_OAUTH2_URL}/github/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

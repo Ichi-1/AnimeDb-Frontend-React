@@ -42,6 +42,7 @@ const PosterContainer = styled.div`
     }
 
 `;
+
 const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
