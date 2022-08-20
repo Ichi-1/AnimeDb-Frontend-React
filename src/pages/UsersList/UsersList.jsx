@@ -73,7 +73,7 @@ export const UsersList = () => {
                                 id={user.id}
                                 avatar={user.avatar_url}
                                 nickname={user.nickname}
-                                last_online={user.last_login !== null ? convertTime(user.last_login) : user.last_login}
+                                last_online={user.last_login !== null ? convertTime(user.last_login) : ''}
                             />
                         })}
                     </>

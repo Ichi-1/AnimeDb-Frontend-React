@@ -7,7 +7,7 @@ import { Panel, PanelWithLink } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
 import { BeatLoader } from 'react-spinners'
 import { ContentButtons } from 'components/Buttons/ContentButtons/ContentButtons'
-
+import { ReadMoreButton } from 'components/Buttons/ReadMore/ReadMore'
 
 const Header = styled.div`
     margin-top: 10px;
@@ -135,13 +135,9 @@ export const SingleContentPage = () => {
         const response = await AnimeSerivce.getByID(id)
         const data = response.data
         const tags = data.tags.split(',').slice(0, 6).join(',')
-        let description = data.description
         const rating = parseFloat(String(parseInt(data.average_rating)/2).split('')[0]) + 0.5
+        let description = data.description
         
-
-        if (description.length > 500) {
-            description = description.slice(0, 501) + '...'
-        }
 
         setDescription(description)
         setContent(data)
@@ -203,7 +199,18 @@ export const SingleContentPage = () => {
 
                             <DescriptionContainer>
                                 <Panel title='Description' />
-                                <DescriptionValue>{description}</DescriptionValue>
+
+                                {description.length > 700 
+                                    ? <DescriptionValue> 
+                                        <ReadMoreButton text={description} />  
+                                    </DescriptionValue> 
+                                    : <DescriptionValue> 
+                                        {description}
+                                    </DescriptionValue> 
+                                }   
+                                
+                                    
+                                
                             </DescriptionContainer>
 
                             <RecommendationContainer>
