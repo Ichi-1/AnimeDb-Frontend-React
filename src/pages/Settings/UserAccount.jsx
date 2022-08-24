@@ -32,7 +32,7 @@ const ButtonBackContainer = styled.div`
 `;
 
 const Nickname = styled.div`
-    font-size: 25px;
+    font-size: 35px;
 `;
 
 const MainContainer = styled.div`
