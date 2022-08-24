@@ -1,33 +1,49 @@
-import React, { useContext } from 'react'
-import AuthContext from '../../context/AuthContext'
-import StyledLink from 'components/UI/Link/StyledLink'
-import Typography from '@mui/material/Typography';
+import React, { useState, useEffect } from 'react'
+import { PanelWithLink } from 'components/UI/Panel/Panel';
+import styled from "styled-components"
+import { useFetch } from 'hooks/useFetch';
+import AnimeSerivce from 'api/AnimeService';
+import { BeatLoader } from 'react-spinners';
+import { ItemCard } from 'components/Hits/ItemCard';
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
+const Header = styled.div`
+    margin-top: 10px;
+    width:95%;
+    height: 350px;
+
+    border: 2px solid red;
+`;
+
 
 export const HomePage = () => {
-    const { user } = useContext(AuthContext)
-    return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <Box
-                sx={{
-                    // margin:'auto',
-                    marginTop: 15,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
-            {user
-                ? <Typography component="h1" variant="h4">Hello, {user.nickname}</Typography>
-                : <Typography component="h1" variant="h4">Hello, anonymous </Typography>
+    const [content, setContent] = useState([])
+    const [fetchContent, isLoading, error] = useFetch(async () => {
+        const response = await AnimeSerivce.getList()
+        setContent(response.data.result)
+    })
 
-            }
-            </Box>
-        </Container>
+    useEffect(() => {
+        fetchContent()
+    }, [])
+
+    return (
+        <>
+        <div className='container-fluid anime-list'>
+            <div className='row'>
+                <PanelWithLink title="Top Rated Anime" />
+                <>{content.map(show => {
+                    return <ItemCard
+                        title={show.title}
+                        poster_image={show.poster_image}
+                        kind={show.studio}
+                    
+                    />
+                })}    
+                </>
+            </div>
+        </div>
+            
+        </>
     )
 }
 

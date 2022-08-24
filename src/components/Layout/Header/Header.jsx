@@ -12,7 +12,7 @@ import { ForumButton } from 'components/Buttons/ForumButton';
 import { Notification } from 'components/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import AuthContext from 'context/AuthContext';
-import { LoginButton } from 'components/Buttons/LoginButton';
+import { HeaderLoginButton } from 'components/Buttons/HeaderLoginButton';
 
 import styled from 'styled-components'
 
@@ -100,7 +100,7 @@ export const Header = () => {
                                     <Notification /> 
                                     <AccountButton />
                                 </div>
-                            : <LoginButton />
+                            : <HeaderLoginButton />
                         }
                     </Toolbar>
                 </AppBar>

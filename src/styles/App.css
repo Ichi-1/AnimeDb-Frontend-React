@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+.anime-list > .row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+    border: 2px solid red;
+}

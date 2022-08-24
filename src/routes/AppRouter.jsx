@@ -11,9 +11,10 @@ import { RegistrationPage } from 'pages/Auth/RegistrationPage';
 import { PasswordResetPage } from 'pages/Auth/PasswordResetPage';
 import { AnimeSearchPage } from 'pages/Search/SearchPage'
 import { SingleContentPage } from 'pages/SingleContent/SingleContentPage'
-import { UsersList } from 'pages/UsersList/UsersList';
+import { UserList } from 'pages/UserList/UserList';
 import { UserAccount } from 'pages/Settings/UserAccount';
 import { UserProfile } from 'pages/UserProfile/UserProfile';
+import { SetPassword, SetNickname } from 'pages/Settings/SetCredentials';
 
 export const AppRouter = () => {
 
@@ -26,11 +27,13 @@ export const AppRouter = () => {
                     <Route path="/anime" element={<AnimeSearchPage />} />
                     
                     <Route path="/anime/:id" element={<SingleContentPage />} />
-                    <Route path="/users" element={<UsersList />} />
+                    <Route path="/users" element={<UserList />} />
                     <Route path="/:id" element={<UserProfile />} />
 
                     <Route element={<UserOnlyRoutes />}>
                         <Route path="/:id/settings/account" element={<UserAccount />} />
+                        <Route path="/:id/settings/account/set-password" element={<SetPassword />} />
+                        <Route path="/:id/settings/account/set-nickname" element={<SetNickname />} />
                     </Route>
 
 

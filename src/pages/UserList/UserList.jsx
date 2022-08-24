@@ -34,13 +34,12 @@ const LoadingWrapper = styled.div`
 
 
 
-export const UsersList = () => {
+export const UserList = () => {
     const [usersList, setUsersList] = useState([])
 
     const [fetchUsersList, isLoading, error] = useFetch(async () => {
         const response = await UserService.getList()
-        console.log(response.data)
-        setUsersList(response.data)
+        setUsersList(response.data.results)
     })
 
 
@@ -50,36 +49,37 @@ export const UsersList = () => {
 
     return (
         <div>
-            <Header>
-                <Typography component="h3" variant="h7">
-                    Users
-                </Typography>
-                <Typography variant="caption" display="block" gutterBottom>
-                    This page display all registered users
-                </Typography>
-            </Header>
+            {isLoading && (
+                <LoadingWrapper>
+                    <BeatLoader loading size={20} speedMultiplier={1} />
+                </LoadingWrapper>
+            )}
 
-            <Container>
-                {isLoading && (
-                    <LoadingWrapper>
-                        <BeatLoader loading size={20} speedMultiplier={1} />
-                    </LoadingWrapper>
-                )}
+            {!isLoading && (
+                <>
+                    <Header>
+                        <Typography component="h3" variant="h7">
+                            Users
+                        </Typography>
+                        <Typography variant="caption" display="block" gutterBottom>
+                            This page display all registered users sorted by last activity
+                        </Typography>
+                    </Header>
 
-                {!isLoading && (
-                    <>
+                    <Container>
+
                         {usersList.map(user => {
-                        return <User
+                            return <User
                                 id={user.id}
                                 avatar={user.avatar_url}
                                 nickname={user.nickname}
                                 last_online={user.last_login !== null ? convertTime(user.last_login) : ''}
                             />
                         })}
-                    </>
-                )}
-            
-            </Container>
+                    </Container>
+                </>
+            )}
+
 
 
         </div>

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import StyledLink from 'components/UI/Link/StyledLink';
 
-export const LoginButton = () => {
+export const HeaderLoginButton = () => {
   return (
     <Stack direction="row" spacing={2}>
         <StyledLink to='/login' >

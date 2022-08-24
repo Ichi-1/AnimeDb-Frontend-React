@@ -6,10 +6,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { handleResetPasswordSubmit } from 'components/Auth/RegistrationForm/handleSubmit';
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
-
+import FormHandler from 'utils/FormHandler';
 
 const theme = createTheme();
 
@@ -36,7 +35,7 @@ export const PasswordResetForm = () => {
                         Here you can recover your password by sending an email with instructions
                     </Typography>
 
-                    <Box component="form" onSubmit={handleResetPasswordSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={FormHandler.resetPasswordSubmit} noValidate sx={{ mt: 1 }}>
                         <MyTextField
                             name="email"
                             label="Email"

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AuthService from 'api/AuthService';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,9 +9,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 import { MyAlert } from 'components/Alert/Alert'
-
-import { signUpSubmit } from './handleSubmit';
 import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons/SocialAuthButtons';
+import FormHandler from 'utils/FormHandler';
 
 const theme = createTheme();
 
@@ -47,10 +45,9 @@ export const RegistrationForm = () => {
                     </Typography>
 
                     <Box sx={{ mt: 1 }} component="form" noValidate onSubmit={(e) => {
-                        signUpSubmit(e).then(result => {
+                        FormHandler.signUpSubmit(e).then(result => {
                             const status = result[0]
                             const text = result[1]
-                            console.log(text)
                             setMessageStatus(status)
                             setMessageText(text)
                         })

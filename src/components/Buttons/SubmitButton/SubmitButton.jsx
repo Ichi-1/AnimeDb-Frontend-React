@@ -1,10 +1,11 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-export const SubmitButton = (props) => {
+export const SubmitButton = ({onClick, verb}) => {
   return (
     <div>
         <Button
+        onClick={onClick}
         style={{
                 backgroundColor: "#575a60",
                 fontWeight:"",
@@ -15,7 +16,7 @@ export const SubmitButton = (props) => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
         >
-        {props.verb}
+        {verb}
         </Button>
     </div>
   )
