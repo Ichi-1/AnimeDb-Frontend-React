@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import UserService from 'api/UserSerivce';
-import FormHandler from 'utils/FormHandler';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 const Header = styled.div`
     display: flex;
@@ -78,8 +78,19 @@ const AccountOptionsContainer = styled.div`
 
 const RightContainer = styled.div`
     display: flex;
+    flex-direction: column;
     width:50%;
-    justify-content: center;
+`;
+
+const AvatarContainer = styled.div`
+    margin-left: 20px;
+    display:flex;
+`;
+
+const AboutContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
 `;
 
 const Avatar = styled.div`
@@ -121,33 +132,48 @@ export const UserAccount = () => {
 
     const [data, setData] = useState({
         avatar: "",
+        about: "",
+        gender: "",
+        birthdate: "",
     });
     const [errors, setErrors] = useState({
         avatar: "",
     });
 
     const handleImageChange = (e) => {
-        let newData = { ...data };
+        const newData = { ...data };
         newData["avatar"] = e.target.files[0];
         setData(newData);
     };
+    
+    const handleGenderChange = (event) => {
+        const newData = { ...data };
+        setGender(event.target.value);
+        newData['gender'] = event.target.value
+        setData(newData);
+    };
+
+
+    const handleChange = ({ currentTarget: input }) => {
+        const newData = { ...data };
+        newData[input.name] = input.value;
+        setData(newData);
+    };
+
 
     const doSubmit = async (e) => {
         e.preventDefault();
         const response = await UserService.updateProfile(
             id, data, accessToken
         )
-        if (response.status !== 200) {
-            alert(response.status)
-        }
+        if (response.status !== 200) alert(response.status)
+        fetchAuthUser()
     };
 
 
     const [fetchAuthUser, isLoading, error] = useFetch(async () => {
         const response = await UserService.getAuthUser(id, accessToken)
-        if (response.status !== 200) {
-            alert(response.status)
-        }
+        if (response.status !== 200) alert(response.status)
         const data = await response.json()
         setUser(data)
     })
@@ -206,25 +232,28 @@ export const UserAccount = () => {
                             <AccountOptionsContainer>
                                 <TextField
                                     id="date"
-                                    label="Birthday"
+                                    label="Birthdate"
                                     type="date"
-                                    defaultValue="2017-05-24"
+                                    name='birthdate'
+                                    value={user.birthdate}
                                     sx={{ width: 220 }}
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    onChange={(e) => handleChange(e)}
                                 />
 
                                 <FormControl fullWidth>
                                     <InputLabel id="gender">Gender</InputLabel>
                                     <Select
-                                        labelId="gender"
+                                        label="gender"
                                         id="gender"
                                         value={gender}
-                                        label="Gender"
+                                        placeholder={user.gender}
+                                        onChange={(e) => handleGenderChange(e)}
                                     >
-                                        <MenuItem value={'Male'}>Male</MenuItem>
-                                        <MenuItem value={'Male'}>Female</MenuItem>
+                                        <MenuItem value={'M'}>Male</MenuItem>
+                                        <MenuItem value={'F'}>Female</MenuItem>
                                     </Select>
                                 </FormControl>
                             </AccountOptionsContainer>
@@ -232,21 +261,33 @@ export const UserAccount = () => {
                         </LeftContainer>
 
                         <RightContainer>
-                            <Avatar>
-                                <img src={user.avatar_url}></img>
-                            </Avatar>
+                            <AvatarContainer>
+                                <Avatar>
+                                    <img src={user.avatar_url}></img>
+                                </Avatar>
+                                <UploadAvatar>
+                                    <Button variant="contained" component="label">
+                                        Upload
+                                        <input 
+                                            hidden accept="image/*" 
+                                            multiple type="file" 
+                                            onChange={(e) => {handleImageChange(e)}}
+                                        />
+                                    </Button>
+                                </UploadAvatar>
 
-                            <UploadAvatar>
-                                <Button variant="contained" component="label">
-                                    Upload
-                                    <input 
-                                        hidden accept="image/*" 
-                                        multiple type="file" 
-                                        onChange={(e) => {handleImageChange(e)}}
-                                    />
-                                </Button>
-                            </UploadAvatar>
+                            </AvatarContainer>
 
+                            <AboutContainer>
+                                <Panel title='About Me'/>
+                                <TextareaAutosize
+                                    placeholder={user.about}
+                                    name='about' 
+                                    onChange={(e) => handleChange(e)} minRows={5} 
+                                />
+
+                            </AboutContainer>
+                            
                         </RightContainer>
 
                         <ButtonsContainer>

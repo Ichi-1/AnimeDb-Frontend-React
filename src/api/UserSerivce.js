@@ -30,6 +30,19 @@ export default class UserService {
             );
         }
 
+        if (data.birthdate) {
+            form_data.append("birthdate", data.birthdate)
+        }
+
+        if (data.gender) {
+            form_data.append("gender", data.gender)
+        }
+
+        if (data.about) {
+            form_data.append("about", data.about)
+        }
+
+
         const response = fetch(`${URL}/${id}/`, {
             method: 'PATCH',
             headers: {
