@@ -38,7 +38,7 @@ const LastOnline = styled.div`
 export const User = ({ avatar, nickname, last_online, id }) => {
     return (
         <MainContainer>
-            <Avatar><img src={avatar}></img></Avatar>
+            <Avatar><img src={avatar} alt='user'></img></Avatar>
             <SubContainer>
                 <StyledLink to={`/${id}`}>
                     <Nickname>{nickname}</Nickname>

@@ -29,8 +29,8 @@ export const HomePage = () => {
     return (
         <>
         <div className='container-fluid anime-list'>
-            <div className='row'>
                 <PanelWithLink title="Top Rated Anime" />
+            <div className='row'>
                 <>{content.map(show => {
                     return <ItemCard
                         title={show.title}

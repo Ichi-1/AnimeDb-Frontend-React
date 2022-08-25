@@ -7,7 +7,6 @@ import {
     InstantSearch,
     SearchBox,
     RefinementList,
-    SortBy,
 } from 'react-instantsearch-hooks-web';
 
 import { InfiniteHits } from '../../components/Hits/InfiniteHits';

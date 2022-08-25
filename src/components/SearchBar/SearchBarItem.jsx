@@ -83,7 +83,7 @@ export function AnimeScreen({ imageSrc, title, rating, id, tags, kind, year }) {
 
             <Link key={id} to={`/anime/${id}`}>
                 <PosterImage>
-                    <img style={{ objectFit: 'fill', height: '150px', width: '100%' }} src={imageSrc} />
+                    <img style={{ objectFit: 'fill', height: '150px', width: '100%' }} src={imageSrc} alt='' />
                 </PosterImage>
             </Link>
 

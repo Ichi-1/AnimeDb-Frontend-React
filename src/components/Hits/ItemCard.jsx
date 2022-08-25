@@ -1,6 +1,4 @@
 import Card from 'react-bootstrap/Card';
-import Typography from '@mui/material/Typography';
-import StyledLink from 'components/UI/Link/StyledLink';
 import styled from 'styled-components'
 
 

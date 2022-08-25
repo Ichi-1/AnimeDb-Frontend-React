@@ -1,7 +1,6 @@
 import './styles/App.css';
 import { AppRouter } from './routes/AppRouter';
 import { AuthProvider } from './context/AuthContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

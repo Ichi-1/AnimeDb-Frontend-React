@@ -6,8 +6,10 @@ import styled from 'styled-components'
 import { Panel, PanelWithLink } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
 import { BeatLoader } from 'react-spinners'
-import { ContentButtons } from 'components/Buttons/ContentButtons/ContentButtons'
+import { ContentButtons } from 'pages/SingleContent/Buttons/ContentButtons'
 import { ReadMoreButton } from 'components/Buttons/ReadMore/ReadMore'
+
+import { CommentGroup } from 'components/Comment/CommentGroup'
 
 const Header = styled.div`
     margin-top: 10px;
@@ -165,7 +167,7 @@ export const SingleContentPage = () => {
                 <Body>
                     <Content>
                         <PosterContainer>
-                            <img src={content.poster_image}></img>
+                            <img src={content.poster_image} alt='poster'></img>
                             <ContentButtons />
                         </PosterContainer>
 
@@ -218,6 +220,8 @@ export const SingleContentPage = () => {
                             </RecommendationContainer>
 
                         </MainContainer>
+
+                        <CommentGroup />
                     </Content>
                     
 
