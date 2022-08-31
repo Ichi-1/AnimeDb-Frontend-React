@@ -10,11 +10,11 @@ export const Panel = ({ title }) => {
 }
 
 
-export const PanelWithLink = ({ title }) => {
+export const PanelWithLink = ({ title, count }) => {
     return (
         <div className={styles.Panel}>
             <div className={styles.PanelWithLink}>
-                {title}
+                {title} {count}
             </div>
         </div>
     )

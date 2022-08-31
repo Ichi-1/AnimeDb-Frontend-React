@@ -2,7 +2,7 @@ import { useFetch } from 'hooks/useFetch';
 import AuthContext from 'context/AuthContext';
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { Panel } from 'components/UI/Panel/Panel'
+import { PanelWithLink, Panel } from 'components/UI/Panel/Panel'
 import { Comment } from './Comment'
 import styled from 'styled-components'
 import AnimeSerivce from 'api/AnimeService';
@@ -10,7 +10,7 @@ import { BeatLoader } from 'react-spinners';
 import parse from 'html-react-parser'
 import { CommentButtons, MyCommentButtons } from './Buttons/CommentButtons';
 import { TextEditor } from 'components/TextEditor/TextEditor';
-
+import moment from 'moment';
 
 const Container = styled.div`
     margin-top: 50px;
@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const LoadingWrapper = styled.div`
     width: 100%;
-    height: 100%;
+    height: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,7 +81,7 @@ export const CommentGroup = () => {
 
     return (
         <Container>
-            <Panel title='Comments' />
+            <PanelWithLink title='Comments' count={`(${comments.length})`} />
             {isLoading &&
                 <LoadingWrapper>
                     <BeatLoader loading size={20} speedMultiplier={1} />
@@ -97,7 +97,7 @@ export const CommentGroup = () => {
                             avatar={comment.author.avatar_url}
                             nickname={comment.author.nickname}
                             body={parse(comment.body)}
-                            datetime={comment.updated_at}
+                            datetime={moment(comment.updated_at).fromNow()}
                             buttons={user ? selectButtons(comment.author.id, comment.id) : ''}
                         />
                     })}

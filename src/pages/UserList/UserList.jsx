@@ -5,7 +5,8 @@ import UserService from 'api/UserSerivce'
 import styled from 'styled-components'
 import { BeatLoader } from 'react-spinners';
 import { User } from './User'
-import { convertTime } from 'utils/parseDate';
+import moment from 'moment';
+
 
 const Header = styled.div`
     display: flex;
@@ -73,7 +74,7 @@ export const UserList = () => {
                                 id={user.id}
                                 avatar={user.avatar_url}
                                 nickname={user.nickname}
-                                last_online={user.last_login !== null ? convertTime(user.last_login) : ''}
+                                last_online={`Last online ${moment(user.last_login).fromNow()}`}
                             />
                         })}
                     </Container>
