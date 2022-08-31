@@ -5,7 +5,7 @@ import AuthContext from 'context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 import { BasicMenu } from '../../MenuBasic';
-import { MenuOptionButton } from 'components/Buttons/MenuOptionButton';
+import { MenuOptionButton } from 'components/UI/Menu/MenuOptionButton';
 
 export const SiteOptions = () => {
     const  {logoutUser} = useContext(AuthContext)

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-export const SubmitButton = ({onClick, verb}) => {
+export const GenericButton = ({onClick, verb}) => {
   return (
     <div>
         <Button

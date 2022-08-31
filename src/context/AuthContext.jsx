@@ -83,6 +83,7 @@ export const AuthProvider = ({ children }) => {
 
     const handleGoogleLogin = async (googleResponse) => {
         const id_token = await googleResponse.credential
+        console.log(id_token)
         const response = await AuthService.googleAuth(id_token)
         const data = await response.json()
 
@@ -103,7 +104,8 @@ export const AuthProvider = ({ children }) => {
         
         if (response.status !== 201) {
             alert(`status: ${response.status}, ${JSON.stringify(data)}`)
-        }
+            return
+        };
         
         setAuthTokens(data.tokens)
         localStorage.setItem('JWT', JSON.stringify(data.tokens))

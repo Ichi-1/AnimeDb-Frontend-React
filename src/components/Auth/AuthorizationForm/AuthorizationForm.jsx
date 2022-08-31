@@ -7,10 +7,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 import { MyTextField } from 'components/UI/TextField/TextField';
 
-import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons/SocialAuthButtons';
+import { SocialAuthButtons } from 'components/Auth/Buttons/SocialAuthButtons';
 
 const theme = createTheme();
 
@@ -52,7 +52,7 @@ export const AuthorizationForm = () => {
                             autoComplete="current-password"
                         />
                         
-                        <SubmitButton verb='Login' />
+                        <GenericButton verb='Login' />
                         
                         <Grid container direction='column'>
                             <Grid item p={1}>

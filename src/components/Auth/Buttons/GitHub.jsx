@@ -15,6 +15,7 @@ export const GitHub = () => {
         if (hasCode){
             // Getting code from query string
             const code = new URLSearchParams(url).get('code')
+            console.log(code)
             // Then making POST request to our backend
             handleGitHubLogin(code)
         }   

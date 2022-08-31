@@ -6,13 +6,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Logo } from 'components/UI/Logo/Logo'
-import { AccountButton } from 'components/Buttons/AccountButton'
-import { HomeButton } from 'components/Buttons/HomeButton'
-import { ForumButton } from 'components/Buttons/ForumButton';
-import { Notification } from 'components/Buttons/NotificationButton'
+import { AccountButton } from 'components/Layout/Header/Buttons/AccountButton'
+import { HomeButton } from 'components/Layout/Header/Buttons/HomeButton'
+import { ForumButton } from 'components/Layout/Header/Buttons/ForumButton';
+import { Notification } from 'components/Layout/Header/Buttons/NotificationButton'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import AuthContext from 'context/AuthContext';
-import { HeaderLoginButton } from 'components/Buttons/HeaderLoginButton';
+import { LoginButton } from 'components/Layout/Header/Buttons/LoginButton';
 
 import styled from 'styled-components'
 
@@ -100,7 +100,7 @@ export const Header = () => {
                                     <Notification /> 
                                     <AccountButton />
                                 </div>
-                            : <HeaderLoginButton />
+                            : <LoginButton />
                         }
                     </Toolbar>
                 </AppBar>

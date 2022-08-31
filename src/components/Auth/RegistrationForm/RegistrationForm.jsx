@@ -6,10 +6,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 import { MyAlert } from 'components/Alert/Alert'
-import { SocialAuthButtons } from 'components/Buttons/SocialAuthButtons/SocialAuthButtons';
+import { SocialAuthButtons } from 'components/Auth/Buttons/SocialAuthButtons';
 import FormHandler from 'utils/FormHandler';
 
 const theme = createTheme();
@@ -76,7 +76,7 @@ export const RegistrationForm = () => {
                         />
 
 
-                        <SubmitButton verb='Sign Up' />
+                        <GenericButton verb='Sign Up' />
 
                         <Grid container direction='column' >
                             <Grid item p={1}>

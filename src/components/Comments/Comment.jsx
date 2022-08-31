@@ -64,40 +64,34 @@ const Body = styled.div`
     font-size: 14px;
 `;
 
-const fake = "Глава понравилась.“Hawkeye Mihawk”!! Also a former Warlord of the Sea and his swordsmanship surpasses that of the Emperor “Red Haired”!! As the Strongest Swordsman in the World, he’s wanted for..!! 3.5 billion and 90 million berries!!Михоук=ТОП1"
 
 
-export const SingleComment = ({ avatar, nickname, last_online, id }) => {
+
+export const Comment = ({ avatar, nickname, datetime, id, body }) => {
     return (
         <Container>
-            
             <Avatar>
-                    <img src='https://moe.shikimori.one/system/users/x160/743787.png?1650454722' alt='user'></img>
+                    <img src={avatar} alt='user'></img>
             </Avatar>
-        
-
+    
             <SubContainer>
 
                 <Header>
                     <SubLeft>
                         <StyledLink to={`/${id}`}>
-                            <Nickname>HelloWorld</Nickname>
+                            <Nickname>{nickname}</Nickname>
                         </StyledLink>
-                        <DateTime>3 hours ago</DateTime>
+                        <DateTime>{datetime}</DateTime>
                     </SubLeft>
 
                     <SubRight>
                         <CommentButtons />
                     </SubRight>
                 </Header>
-
-                <Body>{fake}</Body>
-
+                <Body>
+                    {body}
+                </Body>
             </SubContainer>
-
-
-
-
         </Container>
     )
 }

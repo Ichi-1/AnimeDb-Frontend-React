@@ -7,7 +7,7 @@ import AuthContext from 'context/AuthContext';
 import { Panel } from 'components/UI/Panel/Panel';
 import { GenericForm } from 'components/Forms/GenericForm'
 import { GenericFormField } from 'components/Forms/GenericFormField';
-import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 
 
 const Header = styled.div`
@@ -69,12 +69,11 @@ export const SetPassword = () => {
                     <StyledLink to={`/${id}`}>Cancel</StyledLink>
                 </div>
                 <div>
-                    <SubmitButton
+                    <GenericButton
                         onClick={(e) => doSubmit(e)}
                         verb='Submit'
                     />
                 </div>
-
             </ButtonsContainer>
         </div>
     )
@@ -106,7 +105,7 @@ export const SetNickname = () => {
                     <StyledLink to={`/${id}`}>Cancel</StyledLink>
                 </div>
                 <div>
-                    <SubmitButton
+                    <GenericButton
                         onClick={(e) => doSubmit(e)}
                         verb='Submit'
                     />

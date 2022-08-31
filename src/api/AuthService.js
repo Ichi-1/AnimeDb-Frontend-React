@@ -1,5 +1,5 @@
 const API_AUTH_URL = 'https://anidb-api.herokuapp.com/api/v1/auth'
-const API_OAUTH2_URL = 'https://anidb-api.herokuapp.com/api/v1/oauth2'
+const API_OAUTH2_URL = 'https://anidb-api.herokuapp.com/api/v1/auth/social'
 
 export default class AuthService {
 

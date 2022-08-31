@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { useFetch } from 'hooks/useFetch'
 import { useParams } from 'react-router-dom'
 import AnimeSerivce from 'api/AnimeService'
-import { useFetch } from 'hooks/useFetch'
 import styled from 'styled-components'
 import { Panel, PanelWithLink } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
 import { BeatLoader } from 'react-spinners'
 import { ContentButtons } from 'pages/SingleContent/Buttons/ContentButtons'
-import { ReadMoreButton } from 'components/Buttons/ReadMore/ReadMore'
+import { ReadMoreButton } from 'components/UI/Buttons/ReadMore/ReadMore'
 
-import { CommentGroup } from 'components/Comment/CommentGroup'
+import { CommentGroup } from 'components/Comments/CommentGroup'
+import { TextEditor } from 'components/TextEditor/TextEditor'
+
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 
 const Header = styled.div`
     margin-top: 10px;
@@ -17,7 +20,6 @@ const Header = styled.div`
     text-align: left;
     display: block;
     height: 75px;
-    /* border: 2px solid red; */
 `;
 
 const Body = styled.div`
@@ -25,9 +27,7 @@ const Body = styled.div`
     flex-wrap: wrap;
     min-height: 80%;
     margin-top: 15px;
-    /* min-width: 1000px; */
 
-    /* border: 2px solid red; */
 `;
 
 const SideBar = styled.div`
@@ -125,6 +125,11 @@ const RecommendationContainer = styled.div`
     width: 95%;
 `;
 
+const YourCommentContainer = styled.div`
+    width:95%;
+`;
+
+
 
 export const SingleContentPage = () => {
     const { id } = useParams()
@@ -137,16 +142,18 @@ export const SingleContentPage = () => {
         const response = await AnimeSerivce.getByID(id)
         const data = response.data
         const tags = data.tags.split(',').slice(0, 6).join(',')
-        const rating = parseFloat(String(parseInt(data.average_rating)/2).split('')[0]) + 0.5
+        const rating = parseFloat(String(parseInt(data.average_rating) / 2).split('')[0]) + 0.5
         let description = data.description
-        
 
         setDescription(description)
         setContent(data)
         setTags(tags)
         setRatingStar(rating)
-
     })
+
+    const sendComment = () => {
+        // const response = await AnimeService.postComment()
+    }
 
     useEffect(() => {
         fetchSingle()
@@ -154,8 +161,13 @@ export const SingleContentPage = () => {
 
     return (
         <div style={{ width: '98%' }}>
-        {!isLoading 
-            ? <div>
+            {isLoading &&
+                <LoadingWrapper>
+                    <BeatLoader loading size={20} speedMultiplier={1} />
+                </LoadingWrapper>
+            }
+            {!isLoading && 
+                <>
                 <Header>
                     <h3>
                         {content.title}
@@ -188,7 +200,7 @@ export const SingleContentPage = () => {
                             <RightContainerColumn>
                                 <RatingContainer>
                                     <Panel title='Rating' />
-                                    <RatingStars value={ratingStar}   />
+                                    <RatingStars value={ratingStar} />
                                     <Rating>{content.average_rating}</Rating>
                                 </RatingContainer>
 
@@ -196,23 +208,23 @@ export const SingleContentPage = () => {
                                     <Panel title='Studio' />
                                     {content.studio}
                                 </StudioContainer>
-                                
+
                             </RightContainerColumn>
 
                             <DescriptionContainer>
                                 <Panel title='Description' />
 
-                                {description.length > 700 
-                                    ? <DescriptionValue> 
-                                        <ReadMoreButton text={description} />  
-                                    </DescriptionValue> 
-                                    : <DescriptionValue> 
+                                {description.length > 700
+                                    ? <DescriptionValue>
+                                        <ReadMoreButton text={description} />
+                                    </DescriptionValue>
+                                    : <DescriptionValue>
                                         {description}
-                                    </DescriptionValue> 
-                                }   
-                                
-                                    
-                                
+                                    </DescriptionValue>
+                                }
+
+
+
                             </DescriptionContainer>
 
                             <RecommendationContainer>
@@ -222,8 +234,12 @@ export const SingleContentPage = () => {
                         </MainContainer>
 
                         <CommentGroup />
+
+                        <YourCommentContainer>
+                            <Panel title='Your Comment' />
+                            <TextEditor />
+                        </YourCommentContainer>
                     </Content>
-                    
 
                     <SideBar>
                         <Panel title='Favourites' />
@@ -231,17 +247,9 @@ export const SingleContentPage = () => {
                         <Panel title='collections' />
                         <Panel title='sources' />
                     </SideBar>
-
                 </Body>
-            </div>
-            : <LoadingWrapper>
-                <BeatLoader loading size={20} speedMultiplier={1}/>
-            </LoadingWrapper> 
-
-        }
-
-
-
+            </>
+            }
         </div>
     )
 }

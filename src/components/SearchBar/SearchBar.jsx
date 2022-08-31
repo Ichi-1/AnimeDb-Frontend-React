@@ -238,7 +238,6 @@ export const SearchBar = (props) => {
                                         tags={show.tags}
                                         kind={show.kind}
                                         year={show.year}
-
                                     />
                             })}
                         </>

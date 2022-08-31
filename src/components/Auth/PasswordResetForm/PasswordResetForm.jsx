@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import StyledLink from 'components/UI/Link/StyledLink';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton'
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton'
 import { MyTextField } from 'components/UI/TextField/TextField';
 import FormHandler from 'utils/FormHandler';
 
@@ -43,7 +43,7 @@ export const PasswordResetForm = () => {
                             id="email"
                         />
 
-                        <SubmitButton verb='Send instruction on Email' />
+                        <GenericButton verb='Send instruction on Email' />
 
                         <Grid container direction='column' >
                             <Grid item p={1}>

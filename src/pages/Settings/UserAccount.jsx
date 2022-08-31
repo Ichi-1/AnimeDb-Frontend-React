@@ -3,7 +3,7 @@ import { useFetch } from 'hooks/useFetch'
 import { useParams } from 'react-router-dom'
 import { Panel } from 'components/UI/Panel/Panel';
 import { BeatLoader } from 'react-spinners'
-import { SubmitButton } from 'components/Buttons/SubmitButton/SubmitButton';
+import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 import Button from '@mui/material/Button';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import StyledLink from 'components/UI/Link/StyledLink';
@@ -295,13 +295,13 @@ export const UserAccount = () => {
                                 <StyledLink to={`/${id}`}>Cancel</StyledLink>
                             </div>
                             <div>
-                                <SubmitButton 
-                                onClick={(e) => doSubmit(e)} 
-                                verb='Submit'
+                                <GenericButton
+                                    onClick={(e) => doSubmit(e)} 
+                                    verb='Submit'
                                 />
                             </div>
-
                         </ButtonsContainer>
+                        
                     </MainContainer>
                 </>
 

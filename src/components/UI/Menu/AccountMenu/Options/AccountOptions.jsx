@@ -5,7 +5,7 @@ import PortraitIcon from '@mui/icons-material/Portrait';
 
 import StyledLink from 'components/UI/Link/StyledLink';
 import { BasicMenu } from '../../MenuBasic';
-import { MenuOptionButton } from 'components/Buttons/MenuOptionButton';
+import { MenuOptionButton } from 'components/UI/Menu/MenuOptionButton';
 
 import { useContext } from 'react';
 import AuthContext from 'context/AuthContext';

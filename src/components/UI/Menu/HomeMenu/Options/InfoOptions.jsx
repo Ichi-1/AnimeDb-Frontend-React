@@ -2,7 +2,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
 
 import { BasicMenu } from '../../MenuBasic';
-import { MenuOptionButton } from 'components/Buttons/MenuOptionButton';
+import { MenuOptionButton } from 'components/UI/Menu/MenuOptionButton';
 
 export const InfoOptions = () => {
     return (
