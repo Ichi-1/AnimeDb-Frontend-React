@@ -17,8 +17,8 @@ const Avatar = styled.div`
     margin-right: 10px;
     margin-bottom: 10px;    
     img {
-        width: 100px;
-        height:100px;
+        width: 60px;
+        height:60px;
     }
 `;
 
@@ -28,7 +28,7 @@ const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     height: 30px;
-    width: 100%;
+    width: 107%;
 `;
 
 const SubLeft = styled.div`
@@ -39,17 +39,16 @@ const SubLeft = styled.div`
 
 const SubRight = styled.div`
     display: flex;
-    gap:10px;
-    width: 10px;
+    height: 100%;
 `;
 
 const Nickname = styled.div`
     font-weight: bold;
     height: 25px;
+    font-size: 16px;
 `;
 
 const DateTime = styled.div`
-    margin-top: 5px;
     font-size: 16px;
     color:#434242;
 `
@@ -61,13 +60,13 @@ const SubContainer = styled.div`
 `;
 
 const Body = styled.div`
-    font-size: 14px;
+    font-size: 16px;
 `;
 
 
 
 
-export const Comment = ({ avatar, nickname, datetime, id, body }) => {
+export const Comment = ({ avatar, nickname, datetime, id, body, buttons }) => {
     return (
         <Container>
             <Avatar>
@@ -85,7 +84,7 @@ export const Comment = ({ avatar, nickname, datetime, id, body }) => {
                     </SubLeft>
 
                     <SubRight>
-                        <CommentButtons />
+                        {buttons}
                     </SubRight>
                 </Header>
                 <Body>

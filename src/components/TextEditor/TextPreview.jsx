@@ -16,8 +16,8 @@ const Avatar = styled.div`
     margin-right: 10px;
     margin-bottom: 10px;    
     img {
-        width: 100px;
-        height:100px;
+        width: 60px;
+        height:60px;
     }
 `;
 
@@ -39,6 +39,7 @@ const Sub = styled.div`
 const Nickname = styled.div`
     font-weight: bold;
     height: 25px;
+    font-size: 16px;
 `;
 
 const SubContainer = styled.div`
@@ -48,7 +49,7 @@ const SubContainer = styled.div`
 `;
 
 const Body = styled.div`
-    font-size: 14px;
+    font-size: 16px;
 `;
 
 

@@ -55,6 +55,15 @@ export default class AnimeSerivce {
         }).then(res => res.json())
         
         return response
-        
+    }
+
+    static async deleteComment(anime_id, comment_id, accessToken) {
+        const response = await fetch(`${URL}/${anime_id}/comments/${comment_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `JWT ${accessToken}`,
+            }
+        })
+        return response
     }
 }

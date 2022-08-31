@@ -125,9 +125,6 @@ const RecommendationContainer = styled.div`
     width: 95%;
 `;
 
-const YourCommentContainer = styled.div`
-    width:95%;
-`;
 
 
 
@@ -151,9 +148,6 @@ export const SingleContentPage = () => {
         setRatingStar(rating)
     })
 
-    const sendComment = () => {
-        // const response = await AnimeService.postComment()
-    }
 
     useEffect(() => {
         fetchSingle()
@@ -234,11 +228,7 @@ export const SingleContentPage = () => {
                         </MainContainer>
 
                         <CommentGroup />
-
-                        <YourCommentContainer>
-                            <Panel title='Your Comment' />
-                            <TextEditor />
-                        </YourCommentContainer>
+                        
                     </Content>
 
                     <SideBar>

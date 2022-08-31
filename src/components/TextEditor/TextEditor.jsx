@@ -10,7 +10,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 import { TextPreview } from 'components/TextEditor/TextPreview';
-import AnimeSerivce from 'api/AnimeService';
 
 const ButtonsContainer = styled.div`
     display: flex;
@@ -22,22 +21,8 @@ const ButtonsContainer = styled.div`
     justify-content: end;
 `;
 
-
-export const TextEditor = () => {
-    const { id } = useParams()
+export const TextEditor = ({onClick, onChange, text}) => {
     const { user } = useContext(AuthContext)
-    const [text, setText] = useState('')
-    const accessToken = JSON.parse(localStorage.getItem('JWT'))['access']
-
-    const sendComment = async () => {
-        const response = await AnimeSerivce.postComment(
-            id, user.user_id, text, accessToken
-        )
-        if (response.status !== 201) {
-            alert(response.status)
-        }
-    }
-
 
     return (
         <div className={styles.TextEditor}>
@@ -46,12 +31,8 @@ export const TextEditor = () => {
                 config={ {
                     toolbar: [ 'bold', 'italic', 'link', 'undo', 'redo']
                 } }
-                data="<p>Type your comment!</p>"
-                onChange={(event, editor) => {
-                    const data = editor.getData();
-                    setText(data)
-                    console.log({ event, editor, data });
-                }}
+                data={text}
+                onChange={onChange}
             />
 
             <TextPreview
@@ -62,7 +43,7 @@ export const TextEditor = () => {
             />
 
             <ButtonsContainer>
-                <GenericButton verb='Send' onClick={sendComment} />
+                <GenericButton verb='Send' onClick={onClick} />
             </ButtonsContainer>
         </div>
     )
