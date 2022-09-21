@@ -1,15 +1,25 @@
-import { useState, useEffect } from 'react';
-import { useFetch } from 'hooks/useFetch';
-import { useParams } from 'react-router-dom'
+import moment from 'moment/moment';
+import StyledLink from 'components/UI/Link/StyledLink';
+import UserService from 'api/UserSerivce';
 import styled from "styled-components"
+import { AnimetatisticDonut } from 'pages/MyAnimeList/AnimeStatisticDonut';
+import { ActionsCard } from './Card/ActionsCard';
+import { BeatLoader } from 'react-spinners'
+import { Feed } from "./Feed"
 import { Panel } from 'components/UI/Panel/Panel';
 import { ProfileActionButtons } from './Buttons/ProfileActionButtons';
-import UserService from 'api/UserSerivce';
-import moment from 'moment/moment';
-import { BeatLoader } from 'react-spinners'
-import StyledLink from 'components/UI/Link/StyledLink';
 import { MangaStatisticDonut } from 'pages/MyMangaList/MangaStatisticDonut'
-import { AnimetatisticDonut } from 'pages/MyAnimeList/AnimeStatisticDonut';
+import { useFetch } from 'hooks/useFetch';
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+
+
+const Body = styled.div`
+    display:flex;
+    flex-wrap: wrap;
+    min-height: 80%;
+    
+`;
 
 const ProfileHead = styled.div`
     padding: 0;
@@ -17,9 +27,10 @@ const ProfileHead = styled.div`
     height: 390px;
     width: 1200px;
     /* border: 2px solid red; */
-
     display: flex;
     flex-wrap: wrap;
+
+    margin-bottom: 300px;
 `;
 
 const Picture = styled.div`
@@ -34,12 +45,12 @@ const Picture = styled.div`
 
 const Stats = styled.div`
     /* border: 2px solid green; */
-    width: 60%;
+    width: 55%;
 `;
 
 const History = styled.div`
-    border: 2px solid gold;
-    width: 245px;
+    /* border: 2px solid gold; */
+    width: 25%;
 `;
 
 const PersonalInfo = styled.div`
@@ -70,10 +81,10 @@ const LoadingWrapper = styled.div`
     justify-content: center;
 `;
 
-
 const ListStatistic = styled.div`
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
     width: 100%;
 `;
 
@@ -90,7 +101,6 @@ const MyMangaList = styled.div`
     text-align: left;
     width: 30%;
 `;
-
 
 
 export const Profile = () => {
@@ -110,7 +120,7 @@ export const Profile = () => {
     }, [])
 
     return (
-        <div>
+        <Body>
             {isLoading &&
                 <LoadingWrapper>
                     <BeatLoader loading size={20} speedMultiplier={1} />
@@ -119,7 +129,6 @@ export const Profile = () => {
             {!isLoading &&
                 <>
                     <ProfileHead>
-
                         <Picture>
                             <img src={user.avatar_url} alt="avatar" />
                             <ProfileActionButtons />
@@ -151,18 +160,19 @@ export const Profile = () => {
                                 </MyMangaList>
 
                             </ListStatistic>
-
-
                         </Stats>
 
                         <History>
                             <Panel title="Actions" />
+                            <ActionsCard poster_link="https://nyaa.shikimori.one/system/animes/x96/42310.jpg?1659443430" />
+                            <ActionsCard poster_link="https://nyaa.shikimori.one/system/animes/x96/48580.jpg?1646665781" />
+                            <ActionsCard poster_link="https://dere.shikimori.one/system/animes/x96/50709.jpg?1662202909" />
                         </History>
 
                     </ProfileHead>
+                    <Feed />
                 </>
-
             }
-        </div>
+        </Body>
     )
 }

@@ -34,7 +34,6 @@ const LastOnline = styled.div`
 `;
 
 
-
 export const User = ({ avatar, nickname, last_online, id }) => {
     return (
         <MainContainer>

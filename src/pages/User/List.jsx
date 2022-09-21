@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { useFetch } from 'hooks/useFetch'
 import Typography from '@mui/material/Typography';
-import UserService from 'api/UserSerivce'
 import styled from 'styled-components'
-import { BeatLoader } from 'react-spinners';
-import { User } from './Miniature'
 import moment from 'moment';
+import UserService from 'api/UserSerivce'
+import { BeatLoader } from 'react-spinners';
+import { useState, useEffect } from 'react'
+import { useFetch } from 'hooks/useFetch'
+import { User } from './Miniature'
 
 
 const Header = styled.div`

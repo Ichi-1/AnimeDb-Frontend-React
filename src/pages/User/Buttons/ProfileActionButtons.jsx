@@ -1,10 +1,9 @@
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import EmailIcon from '@mui/icons-material/Email';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
 import Box from '@mui/material/Box';
+import EmailIcon from '@mui/icons-material/Email';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 
 export const ProfileActionButtons = () => {

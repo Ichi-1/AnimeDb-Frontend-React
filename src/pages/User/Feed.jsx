@@ -1,20 +1,22 @@
-import { useFetch } from 'hooks/useFetch';
-import AuthContext from 'context/AuthContext';
-import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { PanelWithLink, Panel } from 'components/UI/Panel/Panel'
-import { Comment } from './Comment'
-import styled from 'styled-components'
 import AnimeSerivce from 'api/AnimeService';
-import { BeatLoader } from 'react-spinners';
+import AuthContext from 'context/AuthContext';
+import styled from 'styled-components'
 import parse from 'html-react-parser'
-import { CommentButtons, MyCommentButtons } from './Buttons/CommentButtons';
-import { TextEditor } from 'components/TextEditor/TextEditor';
 import moment from 'moment';
+import { BeatLoader } from 'react-spinners';
+import { CommentButtons, MyCommentButtons } from './Buttons/CommentButtons';
+import { Comment } from 'components/Comments/Comment'
+import { PanelWithLink, Panel } from 'components/UI/Panel/Panel'
+import { TextEditor } from 'components/TextEditor/TextEditor';
+import { useEffect, useState, useContext } from 'react';
+import { useFetch } from 'hooks/useFetch';
+import { useParams } from 'react-router-dom';
 
 const Container = styled.div`
     margin-top: 50px;
-    width:95%;
+    width:98%;
+    margin-left: 15px;
+
 `;
 
 const LoadingWrapper = styled.div`
@@ -30,7 +32,7 @@ const YourCommentContainer = styled.div`
 `;
 
 
-export const CommentGroup = () => {
+export const Feed = () => {
     const { id } = useParams()
     const { user } = useContext(AuthContext)
     const [comments, setComments] = useState([])
@@ -90,7 +92,7 @@ export const CommentGroup = () => {
             }
             {!isLoading && commentCount > 0 && (
                 <>
-                <PanelWithLink title='Comments' count={`(${commentCount})`} />
+                <PanelWithLink title='Feed' count={`(${commentCount})`} />
                     {comments.map(comment => {
                         return <Comment
                             id={comment.author.id}
@@ -106,7 +108,7 @@ export const CommentGroup = () => {
             )}
             {user &&
                 <YourCommentContainer >
-                    <Panel title='Your Comment' />
+                    <Panel title='Your Message' />
                     <TextEditor
                         id='CommentEditor'
                         onClick={sendComment} 

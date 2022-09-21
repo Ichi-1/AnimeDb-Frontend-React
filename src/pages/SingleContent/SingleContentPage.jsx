@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useFetch } from 'hooks/useFetch'
-import { useParams } from 'react-router-dom'
 import AnimeSerivce from 'api/AnimeService'
 import styled from 'styled-components'
+import { BeatLoader } from 'react-spinners'
+import { CommentGroup } from 'components/Comments/CommentGroup'
+import { ContentButtons } from 'pages/SingleContent/Buttons/ContentButtons'
 import { Panel, PanelWithLink } from 'components/UI/Panel/Panel'
 import { RatingStars } from 'components/UI/Rating/RatingStars'
-import { BeatLoader } from 'react-spinners'
-import { ContentButtons } from 'pages/SingleContent/Buttons/ContentButtons'
 import { ReadMoreButton } from 'components/UI/Buttons/ReadMore/ReadMore'
+import { useState, useEffect } from 'react'
+import { useFetch } from 'hooks/useFetch'
+import { useParams } from 'react-router-dom'
 
-import { CommentGroup } from 'components/Comments/CommentGroup'
 
 
 const Header = styled.div`

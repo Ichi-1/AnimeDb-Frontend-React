@@ -12,19 +12,18 @@ export const data = {
       label: '# of Votes',
       data: [5, 11, 3, 1],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
+        '#df52b4',
+        '#b78bc7',
+        '#edacd9',
+        '#c3bfbf',
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
+        'rgba(242, 235, 242, 0.874)',
+        'rgba(242, 235, 242, 0.874)',
+        'rgba(242, 235, 242, 0.874)',
+        'rgba(242, 235, 242, 0.874)',
       ],
-      borderWidth: 1,
-      
+      borderWidth: 0,
     },
   ],
 };
