@@ -21,11 +21,11 @@ const ButtonsContainer = styled.div`
     justify-content: end;
 `;
 
-export const TextEditor = ({onClick, onChange, text}) => {
+export const TextEditor = ({onClick, onChange, text, id}) => {
     const { user } = useContext(AuthContext)
 
     return (
-        <div className={styles.TextEditor}>
+        <div className={styles.TextEditor} id={id}>
             <CKEditor
                 editor={ClassicEditor}
                 config={ {

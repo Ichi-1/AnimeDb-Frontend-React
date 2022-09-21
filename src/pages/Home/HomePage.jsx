@@ -33,6 +33,7 @@ export const HomePage = () => {
             <div className='row'>
                 <>{content.map(show => {
                     return <ItemCard
+                        key={show.id}
                         title={show.title}
                         poster_image={show.poster_image}
                         kind={show.studio}

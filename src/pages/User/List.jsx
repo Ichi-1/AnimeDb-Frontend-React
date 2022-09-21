@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import UserService from 'api/UserSerivce'
 import styled from 'styled-components'
 import { BeatLoader } from 'react-spinners';
-import { User } from './User'
+import { User } from './Miniature'
 import moment from 'moment';
 
 
@@ -33,16 +33,13 @@ const LoadingWrapper = styled.div`
     justify-content: center;
 `;
 
-
-
-export const UserList = () => {
+export const List = () => {
     const [usersList, setUsersList] = useState([])
 
     const [fetchUsersList, isLoading, error] = useFetch(async () => {
         const response = await UserService.getList()
         setUsersList(response.data.results)
     })
-
 
     useEffect(() => {
         fetchUsersList()
@@ -68,9 +65,9 @@ export const UserList = () => {
                     </Header>
 
                     <Container>
-
                         {usersList.map(user => {
                             return <User
+                                key={user.id}
                                 id={user.id}
                                 avatar={user.avatar_url}
                                 nickname={user.nickname}
@@ -80,9 +77,6 @@ export const UserList = () => {
                     </Container>
                 </>
             )}
-
-
-
         </div>
     )
 }

@@ -35,10 +35,12 @@ export const CommentGroup = () => {
     const { user } = useContext(AuthContext)
     const [comments, setComments] = useState([])
     const [text, setText] = useState('Type your comment here!')
+    const [commentCount, setCommentCount] = useState(0)
     
     const [fetchComments, isLoading, error] = useFetch(async () => {
         const response = await AnimeSerivce.getComments(id)
         setComments(response.result)
+        setCommentCount(response.result.length)
     })
     
     const clickDelete = async (event) => {
@@ -71,7 +73,7 @@ export const CommentGroup = () => {
             alert(response.status)
         }
         fetchComments()
-        setText('')
+        setText('Type your comment here!')
     }
 
 
@@ -81,15 +83,15 @@ export const CommentGroup = () => {
 
     return (
         <Container>
-            <PanelWithLink title='Comments' count={`(${comments.length})`} />
             {isLoading &&
                 <LoadingWrapper>
                     <BeatLoader loading size={20} speedMultiplier={1} />
                 </LoadingWrapper>
             }
 
-            {!isLoading && (
+            {!isLoading && commentCount > 0 && (
                 <>
+                <PanelWithLink title='Comments' count={`(${commentCount})`} />
                     {comments.map(comment => {
                         return <Comment
                             id={comment.author.id}
@@ -105,14 +107,14 @@ export const CommentGroup = () => {
             )}
 
             {user &&
-                <YourCommentContainer>
+                <YourCommentContainer >
                     <Panel title='Your Comment' />
-                    <TextEditor 
+                    <TextEditor
+                        id='CommentEditor'
                         onClick={sendComment} 
                         onChange={(event, editor) => {
                             const data = editor.getData();
                             setText(data)
-                            console.log({ event, editor, data });
                         }}
                         text={text}
                     />

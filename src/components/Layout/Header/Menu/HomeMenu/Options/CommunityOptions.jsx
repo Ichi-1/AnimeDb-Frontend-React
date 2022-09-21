@@ -3,7 +3,7 @@ import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
 import { BasicMenu } from '../../MenuBasic';
-import { MenuOptionButton } from 'components/UI/Menu/MenuOptionButton';
+import { MenuOptionButton } from 'components/Layout/Header/Menu/MenuOptionButton';
 import StyledLink from 'components/UI/Link/StyledLink';
 
 export const CommunityOptions = () => {

@@ -8,6 +8,5 @@ export const UserOnlyRoutes = () => {
     if (!user) {
         return <Navigate to="/login" />;
     }
-
     return <Outlet />
 };

@@ -82,8 +82,4 @@ export default class UserService {
         })
         return response
     }
-
-
-    
-
 }

@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { AccountOptions } from 'components/UI/Menu/AccountMenu/Options/AccountOptions'
-import { SiteOptions } from 'components/UI/Menu/AccountMenu/Options/SiteOptions'
+import { AccountOptions } from 'components/Layout/Header/Menu/AccountMenu/Options/AccountOptions'
+import { SiteOptions } from 'components/Layout/Header/Menu/AccountMenu/Options/SiteOptions'
 import { MyAvatar } from 'components/UI/Avatar/Avatar';
 import AuthContext from 'context/AuthContext';
 

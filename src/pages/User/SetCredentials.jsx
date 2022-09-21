@@ -79,7 +79,6 @@ export const SetPassword = () => {
     )
 }
 
-
 export const SetNickname = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);

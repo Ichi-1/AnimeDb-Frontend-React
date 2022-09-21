@@ -10,9 +10,7 @@ import { ContentButtons } from 'pages/SingleContent/Buttons/ContentButtons'
 import { ReadMoreButton } from 'components/UI/Buttons/ReadMore/ReadMore'
 
 import { CommentGroup } from 'components/Comments/CommentGroup'
-import { TextEditor } from 'components/TextEditor/TextEditor'
 
-import { GenericButton } from 'components/UI/Buttons/Submit/SubmitButton';
 
 const Header = styled.div`
     margin-top: 10px;
@@ -27,7 +25,6 @@ const Body = styled.div`
     flex-wrap: wrap;
     min-height: 80%;
     margin-top: 15px;
-
 `;
 
 const SideBar = styled.div`
