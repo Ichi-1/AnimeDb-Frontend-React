@@ -14,8 +14,8 @@ export const ProfileActionButtons = () => {
     }
 
     return (
-        <div style={{margin:"auto"}}>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+        <div>
+            <Box>
                 <Tooltip title="Chat">
                     <IconButton onClick={scrollToBottom} disableRipple size="">
                         <EmailIcon htmlColor='#000' sx={{

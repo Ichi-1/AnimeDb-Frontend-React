@@ -2,17 +2,22 @@ import moment from 'moment/moment';
 import StyledLink from 'components/UI/Link/StyledLink';
 import UserService from 'api/UserSerivce';
 import styled from "styled-components"
-import { AnimetatisticDonut } from 'pages/MyAnimeList/AnimeStatisticDonut';
+// import { AnimetatisticDonut } from 'pages/MyAnimeList/AnimeStatisticDonut';
+// import { MangaStatisticDonut } from 'pages/MyMangaList/MangaStatisticDonut'
 import { ActionsCard } from './Card/ActionsCard';
 import { BeatLoader } from 'react-spinners'
 import { Feed } from "./Feed"
 import { Panel } from 'components/UI/Panel/Panel';
+import { PanelWithLink } from 'components/UI/Panel/Panel';
 import { ProfileActionButtons } from './Buttons/ProfileActionButtons';
-import { MangaStatisticDonut } from 'pages/MyMangaList/MangaStatisticDonut'
 import { useFetch } from 'hooks/useFetch';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
+import { AnimeListStatisticLinear } from 'components/UI/ProgressBar/AnimeStatisticLinear';
+import { MangaListStatisticLinear } from 'components/UI/ProgressBar/MangaStatisticLinear';
+
+import { Category } from 'pages/MyAnimeList/Category';
 
 const Body = styled.div`
     display:flex;
@@ -83,13 +88,14 @@ const LoadingWrapper = styled.div`
 
 const ListStatistic = styled.div`
     display: flex;
-    flex-direction: row;
-    margin-top: 10px;
+    flex-direction: column;
     width: 100%;
+    gap: 20px;
 `;
 
 const MyAnimeList = styled.div`
     font-size: 17px;
+    flex-direction: row;
     font-weight:bold;
     text-align: left;
     width: 50%;
@@ -102,6 +108,13 @@ const MyMangaList = styled.div`
     width: 30%;
 `;
 
+
+const CategoryList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 640px;
+`;
 
 export const Profile = () => {
     const { id } = useParams()
@@ -142,7 +155,6 @@ export const Profile = () => {
                                         <p>online 25 days ago</p>
                                     </OnlineDateTime>
                                 </div>
-
                                 <div>
                                     <p>{user.gender} / {`${moment().diff(user.birthdate, "years")} years`} / {`member since 2017`}</p>
                                 </div>
@@ -151,19 +163,32 @@ export const Profile = () => {
                             <ListStatistic>
                                 <MyAnimeList>
                                     <StyledLink to={`/${id}/list/anime`}>My Anime List</StyledLink>
-                                    <AnimetatisticDonut />
+                                    <AnimeListStatisticLinear />
+                                    <CategoryList>
+                                        <Category name="Plan to watch" count="201"></Category>
+                                        <Category name="Watching" count="5"></Category>
+                                        <Category name="Completed" count="311"></Category>
+                                        <Category name="Dropped" count="112"></Category>
+                                    </CategoryList>
+
+
                                 </MyAnimeList>
 
-                                <MyMangaList>
+                                <MyMangaList> 
                                     <StyledLink to={`/${id}/list/anime`}>My Manga List</StyledLink>
-                                    <MangaStatisticDonut />
+                                    <MangaListStatisticLinear />
+                                    <CategoryList>
+                                        <Category name="Plan to read" count="2"></Category>
+                                        <Category name="Reading" count="10"></Category>
+                                        <Category name="Completed" count="1"></Category>
+                                        <Category name="Dropped" count="3"></Category>
+                                    </CategoryList>
                                 </MyMangaList>
-
                             </ListStatistic>
                         </Stats>
 
                         <History>
-                            <Panel title="Actions" />
+                            <PanelWithLink  title="Actions" />
                             <ActionsCard poster_link="https://nyaa.shikimori.one/system/animes/x96/42310.jpg?1659443430" />
                             <ActionsCard poster_link="https://nyaa.shikimori.one/system/animes/x96/48580.jpg?1646665781" />
                             <ActionsCard poster_link="https://dere.shikimori.one/system/animes/x96/50709.jpg?1662202909" />

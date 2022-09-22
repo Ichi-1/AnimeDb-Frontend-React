@@ -35,6 +35,8 @@ const SubLeft = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap:10px;
+    width: 155px;
+    align-items: center;
 `;
 
 const SubRight = styled.div`
@@ -49,8 +51,8 @@ const Nickname = styled.div`
 `;
 
 const DateTime = styled.div`
-    font-size: 16px;
-    color:#434242;
+    font-size: 12px;
+    color:#4342429b;
 `
 
 const SubContainer = styled.div`
