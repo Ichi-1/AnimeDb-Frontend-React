@@ -5,7 +5,7 @@ import StyledLink from 'components/UI/Link/StyledLink';
 
 const Body = styled.div`
     display: flex;
-    height:100px;
+    height:85px;
     width: 100%;
     margin-top: 10px;
 
@@ -16,8 +16,8 @@ const PosterImage = styled.div`
 
     img {
         /* float: left; */
-        height:90px;
-        max-width:77px;
+        height:70px;
+        max-width:55px;
     }
 `;
 
@@ -27,20 +27,19 @@ const ActionContainer = styled.div`
     flex-direction: column;
     text-align: left;
     margin-left: 5px;
-    gap:10px;
+    gap:5px;
    
 `;
 
 const ContentName = styled.div`
     font-size: 17px;
     font-weight:bold;
-    `;
+`;
 
 const ActionName = styled.div`
     font-size: 13px;
     color:#232323d9;
 `;
-
 
 const ActionDateTime = styled.div`
     font-size: 12px;
@@ -48,7 +47,7 @@ const ActionDateTime = styled.div`
 `;
 
 
-export const ActionsCard = ({ poster_link, id }) => {
+export const Action = ({ poster_link, id }) => {
     return (
         <Body>
             <PosterImage>
